@@ -43,6 +43,7 @@ class AdCreativeGet(
         categorization_criteria = 'categorization_criteria'
         category_media_source = 'category_media_source'
         contextual_multi_ads = 'contextual_multi_ads'
+        creative_readiness = 'creative_readiness'
         creative_sourcing_spec = 'creative_sourcing_spec'
         degrees_of_freedom_spec = 'degrees_of_freedom_spec'
         destination_spec = 'destination_spec'
@@ -141,6 +142,7 @@ class AdCreativeGet(
         book_travel = 'BOOK_TRAVEL'
         browse_shop = 'BROWSE_SHOP'
         buy = 'BUY'
+        buy_activity_tickets = 'BUY_ACTIVITY_TICKETS'
         buy_now = 'BUY_NOW'
         buy_tickets = 'BUY_TICKETS'
         buy_via_message = 'BUY_VIA_MESSAGE'
@@ -250,6 +252,7 @@ class AdCreativeGet(
         sotto_subscribe = 'SOTTO_SUBSCRIBE'
         start_a_chat = 'START_A_CHAT'
         start_order = 'START_ORDER'
+        stream_now = 'STREAM_NOW'
         subscribe = 'SUBSCRIBE'
         swipe_up_product = 'SWIPE_UP_PRODUCT'
         swipe_up_shop = 'SWIPE_UP_SHOP'
@@ -280,6 +283,7 @@ class AdCreativeGet(
         watch_live_video = 'WATCH_LIVE_VIDEO'
         watch_more = 'WATCH_MORE'
         watch_music_video = 'WATCH_MUSIC_VIDEO'
+        watch_now = 'WATCH_NOW'
         watch_video = 'WATCH_VIDEO'
         whatsapp_link = 'WHATSAPP_LINK'
         whatsapp_message = 'WHATSAPP_MESSAGE'
@@ -349,6 +353,7 @@ class AdCreativeGet(
         'categorization_criteria': 'CategorizationCriteria',
         'category_media_source': 'CategoryMediaSource',
         'contextual_multi_ads': 'object',
+        'creative_readiness': 'object',
         'creative_sourcing_spec': 'object',
         'degrees_of_freedom_spec': 'object',
         'destination_spec': 'object',

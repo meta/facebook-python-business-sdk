@@ -36,6 +36,11 @@ class ShadowIGUserCTXPartnerAppWelcomeMessageFlow(
         name = 'name'
         welcome_message_flow = 'welcome_message_flow'
 
+    class EligiblePlatforms:
+        instagram = 'INSTAGRAM'
+        messenger = 'MESSENGER'
+        whatsapp = 'WHATSAPP'
+
     _field_types = {
         'compatible_platforms': 'list<string>',
         'eligible_platforms': 'list<string>',
@@ -49,6 +54,7 @@ class ShadowIGUserCTXPartnerAppWelcomeMessageFlow(
     @classmethod
     def _get_field_enum_info(cls):
         field_enum_info = {}
+        field_enum_info['EligiblePlatforms'] = ShadowIGUserCTXPartnerAppWelcomeMessageFlow.EligiblePlatforms.__dict__.values()
         return field_enum_info
 
 

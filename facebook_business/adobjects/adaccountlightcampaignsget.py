@@ -30,8 +30,10 @@ class AdAccountLightCampaignsGet(
 
     class DatePreset:
         data_maximum = 'DATA_MAXIMUM'
+        last_12m = 'LAST_12M'
         last_14d = 'LAST_14D'
         last_14_days = 'LAST_14_DAYS'
+        last_180d = 'LAST_180D'
         last_180_days = 'LAST_180_DAYS'
         last_24m = 'LAST_24M'
         last_28d = 'LAST_28D'
@@ -44,6 +46,7 @@ class AdAccountLightCampaignsGet(
         last_3_days = 'LAST_3_DAYS'
         last_3_months = 'LAST_3_MONTHS'
         last_40d = 'LAST_40D'
+        last_60d = 'LAST_60D'
         last_7d = 'LAST_7D'
         last_7_days = 'LAST_7_DAYS'
         last_8_days = 'LAST_8_DAYS'

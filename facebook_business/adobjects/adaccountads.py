@@ -29,36 +29,25 @@ class AdAccountAds(
     class Field(AbstractObject.Field):
         id = 'id'
 
-    def genget(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
+    def gencreatead(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
         from facebook_business.utils import api_utils
         if batch is None and (success is not None or failure is not None):
           api_utils.warning('`success` and `failure` callback only work for batch call.')
-        from facebook_business.adobjects.adaccountadsget import AdAccountAdsGet
+        from facebook_business.adobjects.adaccountadscreatead import AdAccountAdsCreateAd
         param_types = {
-            'after': 'string',
-            'before': 'string',
-            'date_format': 'string',
-            'effective_status': 'string',
             'fields': 'string',
-            'filtering': 'string',
-            'limit': 'int',
-            'remove_pinned_sort': 'string',
-            'sort': 'string',
-            'summary': 'string',
-            'timezone': 'string',
-            'updated_since': 'string',
         }
         enums = {
         }
         request = FacebookRequest(
             node_id=self['id'],
-            method='GET',
+            method='POST',
             endpoint='/ads',
             api=self._api,
             param_checker=TypeChecker(param_types, enums),
-            target_class=AdAccountAdsGet,
+            target_class=AdAccountAdsCreateAd,
             api_type='EDGE',
-            response_parser=ObjectParser(target_class=AdAccountAdsGet, api=self._api),
+            response_parser=ObjectParser(target_class=AdAccountAdsCreateAd, api=self._api),
         )
         request.add_params(params)
         request.add_fields(fields)

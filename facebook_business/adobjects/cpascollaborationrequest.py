@@ -29,6 +29,7 @@ class CPASCollaborationRequest(
     class Field(AbstractObject.Field):
         ad_account_id = 'ad_account_id'
         ad_account_name = 'ad_account_name'
+        archived_time = 'archived_time'
         brands = 'brands'
         catalog_segment = 'catalog_segment'
         collaborative_ads_share_settings = 'collaborative_ads_share_settings'
@@ -55,6 +56,7 @@ class CPASCollaborationRequest(
         external = 'EXTERNAL'
         internal = 'INTERNAL'
         self_serve = 'SELF_SERVE'
+        self_serve_ads_manager = 'SELF_SERVE_ADS_MANAGER'
         self_serve_contact_form = 'SELF_SERVE_CONTACT_FORM'
 
     def api_get(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
@@ -90,6 +92,7 @@ class CPASCollaborationRequest(
     _field_types = {
         'ad_account_id': 'string',
         'ad_account_name': 'string',
+        'archived_time': 'datetime',
         'brands': 'list<string>',
         'catalog_segment': 'ProductCatalog',
         'collaborative_ads_share_settings': 'CollaborativeAdsShareSettings',

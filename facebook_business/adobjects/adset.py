@@ -308,6 +308,8 @@ class AdSet(
         value_22 = '22'
         value_24 = '24'
         value_25 = '25'
+        value_26 = '26'
+        value_27 = '27'
 
     class TuneForCategory:
         credit = 'CREDIT'
@@ -430,7 +432,6 @@ class AdSet(
             'bid_constraints': 'map<string, Object>',
             'bid_strategy': 'bid_strategy_enum',
             'billing_event': 'billing_event_enum',
-            'brand_safety_config': 'map',
             'budget_schedule_specs': 'list<Object>',
             'campaign_attribution': 'Object',
             'campaign_spec': 'Object',
@@ -983,6 +984,7 @@ class AdSet(
             'action_breakdowns': 'list<action_breakdowns_enum>',
             'action_report_time': 'action_report_time_enum',
             'breakdowns': 'list<breakdowns_enum>',
+            'cpas_only': 'string',
             'date_preset': 'date_preset_enum',
             'default_summary': 'bool',
             'export_columns': 'list<string>',
@@ -1046,6 +1048,7 @@ class AdSet(
             'action_breakdowns': 'list<action_breakdowns_enum>',
             'action_report_time': 'action_report_time_enum',
             'breakdowns': 'list<breakdowns_enum>',
+            'cpas_only': 'string',
             'date_preset': 'date_preset_enum',
             'default_summary': 'bool',
             'export_columns': 'list<string>',

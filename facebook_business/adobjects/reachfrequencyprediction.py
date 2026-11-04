@@ -110,6 +110,7 @@ class ReachFrequencyPrediction(
         reservation_status = 'reservation_status'
         start_time = 'start_time'
         status = 'status'
+        status_message = 'status_message'
         story_event_type = 'story_event_type'
         target_cpm = 'target_cpm'
         target_frequency = 'target_frequency'
@@ -298,6 +299,7 @@ class ReachFrequencyPrediction(
         'reservation_status': 'unsigned int',
         'start_time': 'datetime',
         'status': 'unsigned int',
+        'status_message': 'string',
         'story_event_type': 'unsigned int',
         'target_cpm': 'unsigned int',
         'target_frequency': 'unsigned int',

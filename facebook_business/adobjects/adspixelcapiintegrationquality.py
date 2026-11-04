@@ -29,10 +29,12 @@ class AdsPixelCAPIIntegrationQuality(
         dedupe_key_feedback = 'dedupe_key_feedback'
         event_ad_sets = 'event_ad_sets'
         event_coverage = 'event_coverage'
+        event_delay = 'event_delay'
         event_match_quality = 'event_match_quality'
         event_name = 'event_name'
         event_potential_aly_acr_increase = 'event_potential_aly_acr_increase'
         event_spend = 'event_spend'
+        value_diagnostics = 'value_diagnostics'
 
     _field_types = {
         'acr': 'Object',
@@ -40,10 +42,12 @@ class AdsPixelCAPIIntegrationQuality(
         'dedupe_key_feedback': 'list<Object>',
         'event_ad_sets': 'list<Object>',
         'event_coverage': 'Object',
+        'event_delay': 'Object',
         'event_match_quality': 'Object',
         'event_name': 'string',
         'event_potential_aly_acr_increase': 'Object',
         'event_spend': 'Object',
+        'value_diagnostics': 'list<Object>',
     }
     @classmethod
     def _get_field_enum_info(cls):

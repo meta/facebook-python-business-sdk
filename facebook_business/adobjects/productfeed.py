@@ -47,6 +47,7 @@ class ProductFeed(
         schedule = 'schedule'
         supplementary_feeds = 'supplementary_feeds'
         update_schedule = 'update_schedule'
+        configuration_source_name = 'configuration_source_name'
         feed_type = 'feed_type'
         override_value = 'override_value'
         primary_feed_ids = 'primary_feed_ids'
@@ -771,6 +772,7 @@ class ProductFeed(
         'schedule': 'ProductFeedSchedule',
         'supplementary_feeds': 'list<string>',
         'update_schedule': 'ProductFeedSchedule',
+        'configuration_source_name': 'string',
         'feed_type': 'FeedType',
         'override_value': 'string',
         'primary_feed_ids': 'list<string>',

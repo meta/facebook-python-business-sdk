@@ -14,20 +14,24 @@ github and we'll fix in our codegen framework. We'll not be able to accept
 pull request for this class.
 """
 
-class AdgroupDelete(
+class AdsInsightsReportRunInsightsGet(
     AbstractObject,
 ):
 
     def __init__(self, api=None):
-        super(AdgroupDelete, self).__init__()
-        self._isAdgroupDelete = True
+        super(AdsInsightsReportRunInsightsGet, self).__init__()
+        self._isAdsInsightsReportRunInsightsGet = True
         self._api = api
 
     class Field(AbstractObject.Field):
-        success = 'success'
+        data = 'data'
+        paging = 'paging'
+        summary = 'summary'
 
     _field_types = {
-        'success': 'bool',
+        'data': 'list<object>',
+        'paging': 'object',
+        'summary': 'object',
     }
     @classmethod
     def _get_field_enum_info(cls):

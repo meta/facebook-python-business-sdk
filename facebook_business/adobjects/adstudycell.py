@@ -30,6 +30,7 @@ class AdStudyCell(
         ad_entities_count = 'ad_entities_count'
         ad_ids = 'ad_ids'
         control_percentage = 'control_percentage'
+        exclusion_geo = 'exclusion_geo'
         id = 'id'
         name = 'name'
         treatment_percentage = 'treatment_percentage'
@@ -219,6 +220,7 @@ class AdStudyCell(
         'ad_entities_count': 'unsigned int',
         'ad_ids': 'list<string>',
         'control_percentage': 'float',
+        'exclusion_geo': 'list<string>',
         'id': 'string',
         'name': 'string',
         'treatment_percentage': 'float',

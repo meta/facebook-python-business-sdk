@@ -24,9 +24,14 @@ class UserAdAccountsGet(
         self._api = api
 
     class Field(AbstractObject.Field):
-        pass
+        data = 'data'
+        paging = 'paging'
+        summary = 'summary'
 
     _field_types = {
+        'data': 'list<object>',
+        'paging': 'object',
+        'summary': 'object',
     }
     @classmethod
     def _get_field_enum_info(cls):

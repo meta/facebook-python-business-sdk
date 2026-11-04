@@ -30,18 +30,6 @@ class CPASLsbImageBank(
         ad_group_id = 'ad_group_id'
         catalog_segment_proxy_id = 'catalog_segment_proxy_id'
         id = 'id'
-        agency_business_id = 'agency_business_id'
-        backup_image_urls = 'backup_image_urls'
-
-    # @deprecated get_endpoint function is deprecated
-    @classmethod
-    def get_endpoint(cls):
-        return 'cpas_lsb_image_bank'
-
-    # @deprecated api_create is being deprecated
-    def api_create(self, parent_id, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
-        from facebook_business.adobjects.productcatalog import ProductCatalog
-        return ProductCatalog(api=self._api, fbid=parent_id).create_cpas_lsb_image_bank(fields, params, batch, success, failure, pending)
 
     def api_get(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
         from facebook_business.utils import api_utils
@@ -54,37 +42,6 @@ class CPASLsbImageBank(
         request = FacebookRequest(
             node_id=self['id'],
             method='GET',
-            endpoint='/',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=CPASLsbImageBank,
-            api_type='NODE',
-            response_parser=ObjectParser(reuse_object=self),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch, success=success, failure=failure)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
-    def api_update(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
-        from facebook_business.utils import api_utils
-        if batch is None and (success is not None or failure is not None):
-          api_utils.warning('`success` and `failure` callback only work for batch call.')
-        param_types = {
-            'backup_image_urls': 'list<string>',
-        }
-        enums = {
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='POST',
             endpoint='/',
             api=self._api,
             param_checker=TypeChecker(param_types, enums),
@@ -139,8 +96,6 @@ class CPASLsbImageBank(
         'ad_group_id': 'string',
         'catalog_segment_proxy_id': 'string',
         'id': 'string',
-        'agency_business_id': 'unsigned int',
-        'backup_image_urls': 'list<string>',
     }
     @classmethod
     def _get_field_enum_info(cls):

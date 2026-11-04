@@ -53,6 +53,7 @@ class AdReportRun(
         action_breakdowns = 'action_breakdowns'
         action_report_time = 'action_report_time'
         breakdowns = 'breakdowns'
+        cpas_only = 'cpas_only'
         date_preset = 'date_preset'
         default_summary = 'default_summary'
         export_columns = 'export_columns'
@@ -172,6 +173,7 @@ class AdReportRun(
         'action_breakdowns': 'list<ActionBreakdowns>',
         'action_report_time': 'ActionReportTime',
         'breakdowns': 'list<Breakdowns>',
+        'cpas_only': 'string',
         'date_preset': 'DatePreset',
         'default_summary': 'bool',
         'export_columns': 'list<string>',

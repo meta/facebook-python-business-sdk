@@ -51,6 +51,7 @@ class IGMedia(
         is_shared_to_feed = 'is_shared_to_feed'
         legacy_instagram_media_id = 'legacy_instagram_media_id'
         like_count = 'like_count'
+        live_reactions = 'live_reactions'
         live_status = 'live_status'
         media_audio_type = 'media_audio_type'
         media_product_type = 'media_product_type'
@@ -588,6 +589,7 @@ class IGMedia(
         'is_shared_to_feed': 'bool',
         'legacy_instagram_media_id': 'string',
         'like_count': 'int',
+        'live_reactions': 'IGLiveMediaReactions',
         'live_status': 'string',
         'media_audio_type': 'string',
         'media_product_type': 'string',

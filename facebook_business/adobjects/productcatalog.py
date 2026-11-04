@@ -80,6 +80,61 @@ class ProductCatalog(
         transactable_items = 'transactable_items'
         vehicles = 'vehicles'
 
+    class CheckoutCountry:
+        ar = 'AR'
+        at = 'AT'
+        au = 'AU'
+        be = 'BE'
+        bg = 'BG'
+        br = 'BR'
+        ca = 'CA'
+        ch = 'CH'
+        cl = 'CL'
+        co = 'CO'
+        cy = 'CY'
+        cz = 'CZ'
+        de = 'DE'
+        dk = 'DK'
+        ec = 'EC'
+        ee = 'EE'
+        es = 'ES'
+        fi = 'FI'
+        fr = 'FR'
+        gb = 'GB'
+        gr = 'GR'
+        hk = 'HK'
+        hr = 'HR'
+        hu = 'HU'
+        ie = 'IE'
+        value_in = 'IN'
+        it = 'IT'
+        jp = 'JP'
+        kr = 'KR'
+        lt = 'LT'
+        lu = 'LU'
+        lv = 'LV'
+        mt = 'MT'
+        mx = 'MX'
+        nl = 'NL'
+        no = 'NO'
+        pe = 'PE'
+        ph = 'PH'
+        pk = 'PK'
+        pl = 'PL'
+        pr = 'PR'
+        pt = 'PT'
+        ro = 'RO'
+        se = 'SE'
+        sg = 'SG'
+        si = 'SI'
+        sk = 'SK'
+        th = 'TH'
+        tr = 'TR'
+        tw = 'TW'
+        us = 'US'
+        uy = 'UY'
+        vn = 'VN'
+
     class EnabledCollabTerms:
         enforce_create_new_ad_account = 'ENFORCE_CREATE_NEW_AD_ACCOUNT'
         enforce_share_ad_performance_access = 'ENFORCE_SHARE_AD_PERFORMANCE_ACCESS'
@@ -234,6 +289,8 @@ class ProductCatalog(
           api_utils.warning('`success` and `failure` callback only work for batch call.')
         param_types = {
             'additional_vertical_option': 'additional_vertical_option_enum',
+            'checkout_country': 'checkout_country_enum',
+            'checkout_url': 'string',
             'da_display_settings': 'Object',
             'default_image_url': 'string',
             'destination_catalog_settings': 'map',
@@ -245,6 +302,7 @@ class ProductCatalog(
         }
         enums = {
             'additional_vertical_option_enum': ProductCatalog.AdditionalVerticalOption.__dict__.values(),
+            'checkout_country_enum': ProductCatalog.CheckoutCountry.__dict__.values(),
         }
         request = FacebookRequest(
             node_id=self['id'],
@@ -502,6 +560,7 @@ class ProductCatalog(
         from facebook_business.utils import api_utils
         if batch is None and (success is not None or failure is not None):
           api_utils.warning('`success` and `failure` callback only work for batch call.')
+        from facebook_business.adobjects.productitem import ProductItem
         param_types = {
             'allow_upsert': 'bool',
             'fbe_external_business_id': 'string',
@@ -516,9 +575,9 @@ class ProductCatalog(
             endpoint='/batch',
             api=self._api,
             param_checker=TypeChecker(param_types, enums),
-            target_class=ProductCatalog,
+            target_class=ProductItem,
             api_type='EDGE',
-            response_parser=ObjectParser(target_class=ProductCatalog, api=self._api),
+            response_parser=ObjectParser(target_class=ProductItem, api=self._api),
         )
         request.add_params(params)
         request.add_fields(fields)
@@ -778,40 +837,6 @@ class ProductCatalog(
             target_class=CollaborativeAdsShareSettings,
             api_type='EDGE',
             response_parser=ObjectParser(target_class=CollaborativeAdsShareSettings, api=self._api),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch, success=success, failure=failure)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
-    def create_cpas_lsb_image_bank(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
-        from facebook_business.utils import api_utils
-        if batch is None and (success is not None or failure is not None):
-          api_utils.warning('`success` and `failure` callback only work for batch call.')
-        from facebook_business.adobjects.cpaslsbimagebank import CPASLsbImageBank
-        param_types = {
-            'ad_group_id': 'unsigned int',
-            'agency_business_id': 'unsigned int',
-            'backup_image_urls': 'list<string>',
-        }
-        enums = {
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='POST',
-            endpoint='/cpas_lsb_image_bank',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=CPASLsbImageBank,
-            api_type='EDGE',
-            response_parser=ObjectParser(target_class=CPASLsbImageBank, api=self._api),
         )
         request.add_params(params)
         request.add_fields(fields)
@@ -1555,69 +1580,6 @@ class ProductCatalog(
             self.assure_call()
             return request.execute()
 
-    def create_media_title(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
-        from facebook_business.utils import api_utils
-        if batch is None and (success is not None or failure is not None):
-          api_utils.warning('`success` and `failure` callback only work for batch call.')
-        param_types = {
-            'additional_image_urls': 'list<string>',
-            'android_app_name': 'string',
-            'android_class': 'string',
-            'android_package': 'string',
-            'android_url': 'string',
-            'awards': 'list<string>',
-            'cast': 'list<string>',
-            'category': 'string',
-            'currency': 'string',
-            'description': 'string',
-            'director': 'list<string>',
-            'fb_product_category': 'string',
-            'genre': 'list<string>',
-            'image_url': 'string',
-            'ios_app_name': 'string',
-            'ios_app_store_id': 'unsigned int',
-            'ios_url': 'string',
-            'ipad_app_name': 'string',
-            'ipad_app_store_id': 'unsigned int',
-            'ipad_url': 'string',
-            'iphone_app_name': 'string',
-            'iphone_app_store_id': 'unsigned int',
-            'iphone_url': 'string',
-            'media_category': 'string',
-            'name': 'string',
-            'price': 'unsigned int',
-            'rating': 'string',
-            'release_date': 'string',
-            'retailer_id': 'string',
-            'url': 'string',
-            'windows_phone_app_id': 'string',
-            'windows_phone_app_name': 'string',
-            'windows_phone_url': 'string',
-        }
-        enums = {
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='POST',
-            endpoint='/media_titles',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=AbstractCrudObject,
-            api_type='EDGE',
-            response_parser=ObjectParser(target_class=AbstractCrudObject, api=self._api),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch, success=success, failure=failure)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
     def get_pricing_variables_batch(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
         from facebook_business.utils import api_utils
         if batch is None and (success is not None or failure is not None):
@@ -1724,6 +1686,7 @@ class ProductCatalog(
           api_utils.warning('`success` and `failure` callback only work for batch call.')
         from facebook_business.adobjects.productfeed import ProductFeed
         param_types = {
+            'configuration_source_name': 'string',
             'country': 'string',
             'default_currency': 'string',
             'deletion_enabled': 'bool',
@@ -2371,6 +2334,7 @@ class ProductCatalog(
         field_enum_info = {}
         field_enum_info['AdditionalVerticalOption'] = ProductCatalog.AdditionalVerticalOption.__dict__.values()
         field_enum_info['Vertical'] = ProductCatalog.Vertical.__dict__.values()
+        field_enum_info['CheckoutCountry'] = ProductCatalog.CheckoutCountry.__dict__.values()
         field_enum_info['EnabledCollabTerms'] = ProductCatalog.EnabledCollabTerms.__dict__.values()
         field_enum_info['PermittedRoles'] = ProductCatalog.PermittedRoles.__dict__.values()
         field_enum_info['PermittedTasks'] = ProductCatalog.PermittedTasks.__dict__.values()

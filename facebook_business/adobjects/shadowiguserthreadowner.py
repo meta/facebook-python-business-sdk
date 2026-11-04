@@ -24,9 +24,10 @@ class ShadowIGUserThreadOwner(
         self._api = api
 
     class Field(AbstractObject.Field):
-        pass
+        thread_owner = 'thread_owner'
 
     _field_types = {
+        'thread_owner': 'Object',
     }
     @classmethod
     def _get_field_enum_info(cls):

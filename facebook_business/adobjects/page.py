@@ -289,11 +289,9 @@ class Page(
     class PermittedTasks:
         advertise = 'ADVERTISE'
         analyze = 'ANALYZE'
-        cashier_role = 'CASHIER_ROLE'
         create_content = 'CREATE_CONTENT'
         global_structure_management = 'GLOBAL_STRUCTURE_MANAGEMENT'
         manage = 'MANAGE'
-        manage_jobs = 'MANAGE_JOBS'
         manage_leads = 'MANAGE_LEADS'
         messaging = 'MESSAGING'
         moderate = 'MODERATE'
@@ -320,11 +318,9 @@ class Page(
     class Tasks:
         advertise = 'ADVERTISE'
         analyze = 'ANALYZE'
-        cashier_role = 'CASHIER_ROLE'
         create_content = 'CREATE_CONTENT'
         global_structure_management = 'GLOBAL_STRUCTURE_MANAGEMENT'
         manage = 'MANAGE'
-        manage_jobs = 'MANAGE_JOBS'
         manage_leads = 'MANAGE_LEADS'
         messaging = 'MESSAGING'
         moderate = 'MODERATE'
@@ -347,47 +343,6 @@ class Page(
         profile_plus_revenue = 'PROFILE_PLUS_REVENUE'
         read_page_mailboxes = 'READ_PAGE_MAILBOXES'
         view_monetization_insights = 'VIEW_MONETIZATION_INSIGHTS'
-
-    class BackdatedTimeGranularity:
-        day = 'day'
-        hour = 'hour'
-        min = 'min'
-        month = 'month'
-        none = 'none'
-        year = 'year'
-
-    class Formatting:
-        markdown = 'MARKDOWN'
-        plaintext = 'PLAINTEXT'
-
-    class PlaceAttachmentSetting:
-        value_1 = '1'
-        value_2 = '2'
-
-    class PostSurfacesBlacklist:
-        value_1 = '1'
-        value_2 = '2'
-        value_3 = '3'
-        value_4 = '4'
-        value_5 = '5'
-
-    class PostingToRedspace:
-        disabled = 'disabled'
-        enabled = 'enabled'
-
-    class TargetSurface:
-        story = 'STORY'
-        timeline = 'TIMELINE'
-
-    class UnpublishedContentType:
-        ads_post = 'ADS_POST'
-        draft = 'DRAFT'
-        inline_created = 'INLINE_CREATED'
-        published = 'PUBLISHED'
-        publish_pending = 'PUBLISH_PENDING'
-        reviewable_branded_content = 'REVIEWABLE_BRANDED_CONTENT'
-        scheduled = 'SCHEDULED'
-        scheduled_recurring = 'SCHEDULED_RECURRING'
 
     class RecommendationAction:
         accept_closed = 'ACCEPT_CLOSED'
@@ -431,13 +386,6 @@ class Page(
     class Platform:
         instagram = 'INSTAGRAM'
         messenger = 'MESSENGER'
-
-    class Actions:
-        ban_user = 'BAN_USER'
-        block_user = 'BLOCK_USER'
-        move_to_spam = 'MOVE_TO_SPAM'
-        unban_user = 'UNBAN_USER'
-        unblock_user = 'UNBLOCK_USER'
 
     class Model:
         arabic = 'ARABIC'
@@ -644,6 +592,7 @@ class Page(
             'hours': 'map',
             'ignore_coordinate_warnings': 'bool',
             'impressum': 'string',
+            'is_ai_generated': 'bool',
             'is_always_open': 'bool',
             'is_permanently_closed': 'bool',
             'is_published': 'bool',
@@ -1210,9 +1159,9 @@ class Page(
             endpoint='/business_messaging_feature_status',
             api=self._api,
             param_checker=TypeChecker(param_types, enums),
-            target_class=Page,
+            target_class=AbstractCrudObject,
             api_type='EDGE',
-            response_parser=ObjectParser(target_class=Page, api=self._api),
+            response_parser=ObjectParser(target_class=AbstractCrudObject, api=self._api),
         )
         request.add_params(params)
         request.add_fields(fields)
@@ -1727,6 +1676,8 @@ class Page(
             'folder': 'string',
             'platform': 'platform_enum',
             'tags': 'list<string>',
+            'updated_after_ms': 'unsigned int',
+            'updated_before_ms': 'unsigned int',
             'user_id': 'string',
         }
         enums = {
@@ -2332,13 +2283,47 @@ class Page(
             'width': 'unsigned int',
         }
         enums = {
-            'backdated_time_granularity_enum': Page.BackdatedTimeGranularity.__dict__.values(),
-            'formatting_enum': Page.Formatting.__dict__.values(),
-            'place_attachment_setting_enum': Page.PlaceAttachmentSetting.__dict__.values(),
-            'post_surfaces_blacklist_enum': Page.PostSurfacesBlacklist.__dict__.values(),
-            'posting_to_redspace_enum': Page.PostingToRedspace.__dict__.values(),
-            'target_surface_enum': Page.TargetSurface.__dict__.values(),
-            'unpublished_content_type_enum': Page.UnpublishedContentType.__dict__.values(),
+            'backdated_time_granularity_enum': [
+                'day',
+                'hour',
+                'min',
+                'month',
+                'none',
+                'year',
+            ],
+            'formatting_enum': [
+                'MARKDOWN',
+                'PLAINTEXT',
+            ],
+            'place_attachment_setting_enum': [
+                '1',
+                '2',
+            ],
+            'post_surfaces_blacklist_enum': [
+                '1',
+                '2',
+                '3',
+                '4',
+                '5',
+            ],
+            'posting_to_redspace_enum': [
+                'disabled',
+                'enabled',
+            ],
+            'target_surface_enum': [
+                'STORY',
+                'TIMELINE',
+            ],
+            'unpublished_content_type_enum': [
+                'ADS_POST',
+                'DRAFT',
+                'INLINE_CREATED',
+                'PUBLISHED',
+                'PUBLISH_PENDING',
+                'REVIEWABLE_BRANDED_CONTENT',
+                'SCHEDULED',
+                'SCHEDULED_RECURRING',
+            ],
         }
         request = FacebookRequest(
             node_id=self['id'],
@@ -2346,9 +2331,9 @@ class Page(
             endpoint='/feed',
             api=self._api,
             param_checker=TypeChecker(param_types, enums),
-            target_class=Page,
+            target_class=AbstractCrudObject,
             api_type='EDGE',
-            response_parser=ObjectParser(target_class=Page, api=self._api),
+            response_parser=ObjectParser(target_class=AbstractCrudObject, api=self._api),
         )
         request.add_params(params)
         request.add_fields(fields)
@@ -3257,6 +3242,7 @@ class Page(
         from facebook_business.utils import api_utils
         if batch is None and (success is not None or failure is not None):
           api_utils.warning('`success` and `failure` callback only work for batch call.')
+        from facebook_business.adobjects.messengercallsettings import MessengerCallSettings
         param_types = {
             'audio_enabled': 'bool',
             'call_hours': 'map',
@@ -3272,9 +3258,9 @@ class Page(
             endpoint='/messenger_call_settings',
             api=self._api,
             param_checker=TypeChecker(param_types, enums),
-            target_class=Page,
+            target_class=MessengerCallSettings,
             api_type='EDGE',
-            response_parser=ObjectParser(target_class=Page, api=self._api),
+            response_parser=ObjectParser(target_class=MessengerCallSettings, api=self._api),
         )
         request.add_params(params)
         request.add_fields(fields)
@@ -3487,7 +3473,13 @@ class Page(
             'user_ids': 'list<map>',
         }
         enums = {
-            'actions_enum': Page.Actions.__dict__.values(),
+            'actions_enum': [
+                'BAN_USER',
+                'BLOCK_USER',
+                'MOVE_TO_SPAM',
+                'UNBAN_USER',
+                'UNBLOCK_USER',
+            ],
         }
         request = FacebookRequest(
             node_id=self['id'],
@@ -3495,9 +3487,9 @@ class Page(
             endpoint='/moderate_conversations',
             api=self._api,
             param_checker=TypeChecker(param_types, enums),
-            target_class=Page,
+            target_class=AbstractCrudObject,
             api_type='EDGE',
-            response_parser=ObjectParser(target_class=Page, api=self._api),
+            response_parser=ObjectParser(target_class=AbstractCrudObject, api=self._api),
         )
         request.add_params(params)
         request.add_fields(fields)
@@ -3557,7 +3549,7 @@ class Page(
         param_types = {
             'custom_audience_ids': 'list<string>',
             'do_not_return_duplicates': 'bool',
-            'has_received_marketing_message': 'bool',
+            'is_previously_messaged': 'bool',
             'opt_in_source': 'list<opt_in_source_enum>',
             'since': 'datetime',
             'subscriber_tag_ids': 'list<string>',
@@ -3762,9 +3754,9 @@ class Page(
             endpoint='/pass_thread_control',
             api=self._api,
             param_checker=TypeChecker(param_types, enums),
-            target_class=Page,
+            target_class=AbstractCrudObject,
             api_type='EDGE',
-            response_parser=ObjectParser(target_class=Page, api=self._api),
+            response_parser=ObjectParser(target_class=AbstractCrudObject, api=self._api),
         )
         request.add_params(params)
         request.add_fields(fields)
@@ -3953,8 +3945,6 @@ class Page(
             'place': 'Object',
             'privacy': 'string',
             'profile_id': 'int',
-            'provenance_info': 'map',
-            'provenance_metadata': 'map',
             'proxied_app_id': 'string',
             'published': 'bool',
             'qn': 'string',
@@ -4242,9 +4232,9 @@ class Page(
             endpoint='/release_thread_control',
             api=self._api,
             param_checker=TypeChecker(param_types, enums),
-            target_class=Page,
+            target_class=AbstractCrudObject,
             api_type='EDGE',
-            response_parser=ObjectParser(target_class=Page, api=self._api),
+            response_parser=ObjectParser(target_class=AbstractCrudObject, api=self._api),
         )
         request.add_params(params)
         request.add_fields(fields)
@@ -4873,6 +4863,8 @@ class Page(
             'folder': 'string',
             'platform': 'platform_enum',
             'tags': 'list<string>',
+            'updated_after_ms': 'unsigned int',
+            'updated_before_ms': 'unsigned int',
             'user_id': 'string',
         }
         enums = {
@@ -5668,13 +5660,6 @@ class Page(
         field_enum_info['TemporaryStatus'] = Page.TemporaryStatus.__dict__.values()
         field_enum_info['PermittedTasks'] = Page.PermittedTasks.__dict__.values()
         field_enum_info['Tasks'] = Page.Tasks.__dict__.values()
-        field_enum_info['BackdatedTimeGranularity'] = Page.BackdatedTimeGranularity.__dict__.values()
-        field_enum_info['Formatting'] = Page.Formatting.__dict__.values()
-        field_enum_info['PlaceAttachmentSetting'] = Page.PlaceAttachmentSetting.__dict__.values()
-        field_enum_info['PostSurfacesBlacklist'] = Page.PostSurfacesBlacklist.__dict__.values()
-        field_enum_info['PostingToRedspace'] = Page.PostingToRedspace.__dict__.values()
-        field_enum_info['TargetSurface'] = Page.TargetSurface.__dict__.values()
-        field_enum_info['UnpublishedContentType'] = Page.UnpublishedContentType.__dict__.values()
         field_enum_info['RecommendationAction'] = Page.RecommendationAction.__dict__.values()
         field_enum_info['Category'] = Page.Category.__dict__.values()
         field_enum_info['ParameterFormat'] = Page.ParameterFormat.__dict__.values()
@@ -5684,7 +5669,6 @@ class Page(
         field_enum_info['SenderAction'] = Page.SenderAction.__dict__.values()
         field_enum_info['SuggestionAction'] = Page.SuggestionAction.__dict__.values()
         field_enum_info['Platform'] = Page.Platform.__dict__.values()
-        field_enum_info['Actions'] = Page.Actions.__dict__.values()
         field_enum_info['Model'] = Page.Model.__dict__.values()
         field_enum_info['DeveloperAction'] = Page.DeveloperAction.__dict__.values()
         field_enum_info['SubscribedFields'] = Page.SubscribedFields.__dict__.values()

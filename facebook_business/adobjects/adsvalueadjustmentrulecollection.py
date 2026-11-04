@@ -34,6 +34,7 @@ class AdsValueAdjustmentRuleCollection(
         product_type = 'product_type'
         status = 'status'
         entry_point = 'entry_point'
+        origin = 'origin'
         rules = 'rules'
 
     class EntryPoint:
@@ -43,6 +44,13 @@ class AdsValueAdjustmentRuleCollection(
         l2_global = 'L2_GLOBAL'
         l2_nca_goal = 'L2_NCA_GOAL'
         l2_placement = 'L2_PLACEMENT'
+
+    class Origin:
+        advantage_audience_guidance_suggested = 'ADVANTAGE_AUDIENCE_GUIDANCE_SUGGESTED'
+        advertiser_created = 'ADVERTISER_CREATED'
+        placement_guidance_suggested = 'PLACEMENT_GUIDANCE_SUGGESTED'
+        placement_personalized_suggested = 'PLACEMENT_PERSONALIZED_SUGGESTED'
+        translated_from_bid_multipliers = 'TRANSLATED_FROM_BID_MULTIPLIERS'
 
     class ProductType:
         audience = 'AUDIENCE'
@@ -142,7 +150,7 @@ class AdsValueAdjustmentRuleCollection(
         request = FacebookRequest(
             node_id=self['id'],
             method='POST',
-            endpoint='/delete_rule_set',
+            endpoint='/deleteruleset',
             api=self._api,
             param_checker=TypeChecker(param_types, enums),
             target_class=AdsValueAdjustmentRuleCollection,
@@ -199,12 +207,14 @@ class AdsValueAdjustmentRuleCollection(
         'product_type': 'string',
         'status': 'string',
         'entry_point': 'EntryPoint',
+        'origin': 'Origin',
         'rules': 'list<map>',
     }
     @classmethod
     def _get_field_enum_info(cls):
         field_enum_info = {}
         field_enum_info['EntryPoint'] = AdsValueAdjustmentRuleCollection.EntryPoint.__dict__.values()
+        field_enum_info['Origin'] = AdsValueAdjustmentRuleCollection.Origin.__dict__.values()
         field_enum_info['ProductType'] = AdsValueAdjustmentRuleCollection.ProductType.__dict__.values()
         field_enum_info['Status'] = AdsValueAdjustmentRuleCollection.Status.__dict__.values()
         return field_enum_info

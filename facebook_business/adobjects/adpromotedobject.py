@@ -56,6 +56,7 @@ class AdPromotedObject(
         offline_conversion_data_set_id = 'offline_conversion_data_set_id'
         offsite_conversion_event_id = 'offsite_conversion_event_id'
         omnichannel_object = 'omnichannel_object'
+        optimization_product_set_id = 'optimization_product_set_id'
         page_id = 'page_id'
         passback_application_id = 'passback_application_id'
         passback_pixel_id = 'passback_pixel_id'
@@ -195,6 +196,7 @@ class AdPromotedObject(
         'offline_conversion_data_set_id': 'string',
         'offsite_conversion_event_id': 'string',
         'omnichannel_object': 'Object',
+        'optimization_product_set_id': 'string',
         'page_id': 'string',
         'passback_application_id': 'string',
         'passback_pixel_id': 'string',

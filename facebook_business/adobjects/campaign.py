@@ -56,6 +56,7 @@ class Campaign(
         is_direct_send_campaign = 'is_direct_send_campaign'
         is_message_campaign = 'is_message_campaign'
         is_meta_moment_maker_enabled = 'is_meta_moment_maker_enabled'
+        is_pca_unified = 'is_pca_unified'
         is_reels_trending_ads_enabled = 'is_reels_trending_ads_enabled'
         is_skadnetwork_attribution = 'is_skadnetwork_attribution'
         issues_info = 'issues_info'
@@ -560,6 +561,7 @@ class Campaign(
             'is_direct_send_campaign': 'bool',
             'is_message_campaign': 'bool',
             'is_meta_moment_maker_enabled': 'bool',
+            'is_pca_unified': 'bool',
             'is_reels_trending_ads_enabled': 'bool',
             'is_skadnetwork_attribution': 'bool',
             'iterative_split_test_configs': 'list<Object>',
@@ -934,6 +936,7 @@ class Campaign(
             'action_breakdowns': 'list<action_breakdowns_enum>',
             'action_report_time': 'action_report_time_enum',
             'breakdowns': 'list<breakdowns_enum>',
+            'cpas_only': 'string',
             'date_preset': 'date_preset_enum',
             'default_summary': 'bool',
             'export_columns': 'list<string>',
@@ -997,6 +1000,7 @@ class Campaign(
             'action_breakdowns': 'list<action_breakdowns_enum>',
             'action_report_time': 'action_report_time_enum',
             'breakdowns': 'list<breakdowns_enum>',
+            'cpas_only': 'string',
             'date_preset': 'date_preset_enum',
             'default_summary': 'bool',
             'export_columns': 'list<string>',
@@ -1079,6 +1083,7 @@ class Campaign(
         'is_direct_send_campaign': 'bool',
         'is_message_campaign': 'bool',
         'is_meta_moment_maker_enabled': 'bool',
+        'is_pca_unified': 'bool',
         'is_reels_trending_ads_enabled': 'bool',
         'is_skadnetwork_attribution': 'bool',
         'issues_info': 'list<AdCampaignIssuesInfo>',

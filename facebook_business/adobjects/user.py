@@ -85,6 +85,10 @@ class User(
         status_off = 'STATUS_OFF'
         status_on = 'STATUS_ON'
 
+    class AiDisclosure:
+        ai_generated = 'AI_GENERATED'
+        not_ai_generated = 'NOT_AI_GENERATED'
+
     class Filtering:
         ema = 'ema'
         groups = 'groups'
@@ -662,6 +666,37 @@ class User(
             self.assure_call()
             return request.execute()
 
+    def get_assigned_instagram_accounts(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
+        from facebook_business.utils import api_utils
+        if batch is None and (success is not None or failure is not None):
+          api_utils.warning('`success` and `failure` callback only work for batch call.')
+        from facebook_business.adobjects.iguser import IGUser
+        param_types = {
+        }
+        enums = {
+        }
+        request = FacebookRequest(
+            node_id=self['id'],
+            method='GET',
+            endpoint='/assigned_instagram_accounts',
+            api=self._api,
+            param_checker=TypeChecker(param_types, enums),
+            target_class=IGUser,
+            api_type='EDGE',
+            response_parser=ObjectParser(target_class=IGUser, api=self._api),
+        )
+        request.add_params(params)
+        request.add_fields(fields)
+
+        if batch is not None:
+            request.add_to_batch(batch, success=success, failure=failure)
+            return request
+        elif pending:
+            return request
+        else:
+            self.assure_call()
+            return request.execute()
+
     def get_assigned_pages(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
         from facebook_business.utils import api_utils
         if batch is None and (success is not None or failure is not None):
@@ -902,6 +937,8 @@ class User(
             'folder': 'string',
             'platform': 'platform_enum',
             'tags': 'list<string>',
+            'updated_after_ms': 'unsigned int',
+            'updated_before_ms': 'unsigned int',
             'user_id': 'string',
         }
         enums = {
@@ -1632,7 +1669,9 @@ class User(
         if batch is None and (success is not None or failure is not None):
           api_utils.warning('`success` and `failure` callback only work for batch call.')
         param_types = {
+            'ai_disclosure': 'ai_disclosure_enum',
             'bot_message_payload_elements': 'string',
+            'button_title': 'string',
             'filtering': 'list<filtering_enum>',
             'game_metadata': 'string',
             'href': 'Object',
@@ -1640,6 +1679,7 @@ class User(
             'message': 'map',
             'notif_ids': 'list<string>',
             'notification_content_id': 'unsigned int',
+            'notification_contents': 'list<map>',
             'payload': 'string',
             'read': 'bool',
             'ref': 'string',
@@ -1649,6 +1689,7 @@ class User(
             'type': 'type_enum',
         }
         enums = {
+            'ai_disclosure_enum': User.AiDisclosure.__dict__.values(),
             'filtering_enum': User.Filtering.__dict__.values(),
             'type_enum': User.Type.__dict__.values(),
         }
@@ -1876,8 +1917,6 @@ class User(
             'place': 'Object',
             'privacy': 'string',
             'profile_id': 'int',
-            'provenance_info': 'map',
-            'provenance_metadata': 'map',
             'proxied_app_id': 'string',
             'published': 'bool',
             'qn': 'string',
@@ -2258,6 +2297,7 @@ class User(
         field_enum_info = {}
         field_enum_info['LocalNewsMegaphoneDismissStatus'] = User.LocalNewsMegaphoneDismissStatus.__dict__.values()
         field_enum_info['LocalNewsSubscriptionStatus'] = User.LocalNewsSubscriptionStatus.__dict__.values()
+        field_enum_info['AiDisclosure'] = User.AiDisclosure.__dict__.values()
         field_enum_info['Filtering'] = User.Filtering.__dict__.values()
         field_enum_info['Type'] = User.Type.__dict__.values()
         return field_enum_info

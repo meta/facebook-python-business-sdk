@@ -52,6 +52,7 @@ class WhatsAppBusinessAccount(
         primary_business_location = 'primary_business_location'
         primary_funding_id = 'primary_funding_id'
         purchase_order_number = 'purchase_order_number'
+        service_pricing_policy = 'service_pricing_policy'
         status = 'status'
         template_auto_archival_enabled = 'template_auto_archival_enabled'
         timezone_id = 'timezone_id'
@@ -110,6 +111,11 @@ class WhatsAppBusinessAccount(
     class ParameterFormat:
         named = 'NAMED'
         positional = 'POSITIONAL'
+
+    class RoutingEntrypoint:
+        marketing_entrypoint = 'MARKETING_ENTRYPOINT'
+        service_entrypoint = 'SERVICE_ENTRYPOINT'
+        utility_entrypoint = 'UTILITY_ENTRYPOINT'
 
     class SendType:
         campaign = 'CAMPAIGN'
@@ -996,6 +1002,7 @@ class WhatsAppBusinessAccount(
             'optimization_spec': 'map',
             'parameter_format': 'parameter_format_enum',
             'product_set_id': 'string',
+            'routing_entrypoint': 'routing_entrypoint_enum',
             'send_type': 'send_type_enum',
             'source_template_id': 'unsigned int',
             'sub_category': 'sub_category_enum',
@@ -1004,6 +1011,7 @@ class WhatsAppBusinessAccount(
             'category_enum': WhatsAppBusinessAccount.Category.__dict__.values(),
             'display_format_enum': WhatsAppBusinessAccount.DisplayFormat.__dict__.values(),
             'parameter_format_enum': WhatsAppBusinessAccount.ParameterFormat.__dict__.values(),
+            'routing_entrypoint_enum': WhatsAppBusinessAccount.RoutingEntrypoint.__dict__.values(),
             'send_type_enum': WhatsAppBusinessAccount.SendType.__dict__.values(),
             'sub_category_enum': WhatsAppBusinessAccount.SubCategory.__dict__.values(),
         }
@@ -1950,6 +1958,7 @@ class WhatsAppBusinessAccount(
         'primary_business_location': 'string',
         'primary_funding_id': 'string',
         'purchase_order_number': 'string',
+        'service_pricing_policy': 'string',
         'status': 'string',
         'template_auto_archival_enabled': 'bool',
         'timezone_id': 'string',
@@ -1967,6 +1976,7 @@ class WhatsAppBusinessAccount(
         field_enum_info['Category'] = WhatsAppBusinessAccount.Category.__dict__.values()
         field_enum_info['DisplayFormat'] = WhatsAppBusinessAccount.DisplayFormat.__dict__.values()
         field_enum_info['ParameterFormat'] = WhatsAppBusinessAccount.ParameterFormat.__dict__.values()
+        field_enum_info['RoutingEntrypoint'] = WhatsAppBusinessAccount.RoutingEntrypoint.__dict__.values()
         field_enum_info['SendType'] = WhatsAppBusinessAccount.SendType.__dict__.values()
         field_enum_info['SubCategory'] = WhatsAppBusinessAccount.SubCategory.__dict__.values()
         field_enum_info['ProviderName'] = WhatsAppBusinessAccount.ProviderName.__dict__.values()

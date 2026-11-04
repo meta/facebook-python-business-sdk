@@ -26,11 +26,13 @@ class TrendingTopicsSpec(
     class Field(AbstractObject.Field):
         is_all_trending = 'is_all_trending'
         is_special_budget_alloc = 'is_special_budget_alloc'
+        program_id = 'program_id'
         trending_topics = 'trending_topics'
 
     _field_types = {
         'is_all_trending': 'bool',
         'is_special_budget_alloc': 'bool',
+        'program_id': 'string',
         'trending_topics': 'list<string>',
     }
     @classmethod

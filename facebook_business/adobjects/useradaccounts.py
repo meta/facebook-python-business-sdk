@@ -37,11 +37,13 @@ class UserAdAccounts(
         param_types = {
             'after': 'string',
             'before': 'string',
+            'date_format': 'string',
             'fields': 'string',
             'filtering': 'string',
             'limit': 'int',
             'sort': 'string',
             'summary': 'string',
+            'timezone': 'string',
         }
         enums = {
         }

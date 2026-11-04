@@ -36,6 +36,7 @@ class AdsUserSettings(
         ads_cs_dynamic_se_opt_out_timestamp = 'ads_cs_dynamic_se_opt_out_timestamp'
         ads_cs_sitelinks_opt_in_status = 'ads_cs_sitelinks_opt_in_status'
         ads_cs_sitelinks_opt_out_timestamp = 'ads_cs_sitelinks_opt_out_timestamp'
+        ads_cs_ugc_opt_out_timestamp = 'ads_cs_ugc_opt_out_timestamp'
         ads_destination_optimization_opt_out_timestamp = 'ads_destination_optimization_opt_out_timestamp'
         ads_tool_visits = 'ads_tool_visits'
         aplusc_ai_agent_opt_in_status = 'aplusc_ai_agent_opt_in_status'
@@ -86,9 +87,11 @@ class AdsUserSettings(
         image_text_translation_opt_in_status = 'image_text_translation_opt_in_status'
         is_ads_ai_consented = 'is_ads_ai_consented'
         is_cbo_default_on = 'is_cbo_default_on'
+        is_negative_keywords_dismissed = 'is_negative_keywords_dismissed'
         is_se_removal_guidance_dismissed = 'is_se_removal_guidance_dismissed'
         last_used_post_format = 'last_used_post_format'
         last_visited_time = 'last_visited_time'
+        maiba_r23_e2e_odax_default_mode = 'maiba_r23_e2e_odax_default_mode'
         metadata_brand_kit_last_opt_out_timestamp = 'metadata_brand_kit_last_opt_out_timestamp'
         metadata_brand_kit_opt_in_status = 'metadata_brand_kit_opt_in_status'
         multi_media_opt_out_status = 'multi_media_opt_out_status'
@@ -112,6 +115,9 @@ class AdsUserSettings(
         sa_off_conv_loc_seen = 'sa_off_conv_loc_seen'
         saoff_published_l2_conv_loc_seen = 'saoff_published_l2_conv_loc_seen'
         saon_migr_l1_seen_status = 'saon_migr_l1_seen_status'
+        se_optout_survey_impr = 'se_optout_survey_impr'
+        se_optout_survey_last_impr_ts = 'se_optout_survey_last_impr_ts'
+        se_optout_survey_resp_ts = 'se_optout_survey_resp_ts'
         selected_ad_account = 'selected_ad_account'
         selected_comparison_timerange = 'selected_comparison_timerange'
         selected_metric_cic = 'selected_metric_cic'
@@ -144,6 +150,7 @@ class AdsUserSettings(
         video_to_image_opt_in_status = 'video_to_image_opt_in_status'
         voiceover_trans_opt_in_status = 'voiceover_trans_opt_in_status'
         website_media_opt_in_status = 'website_media_opt_in_status'
+        website_media_opt_out_ts = 'website_media_opt_out_ts'
         website_reviews_data_opt_in_status = 'website_reviews_data_opt_in_status'
         website_selling_points_data_opt_in_status = 'website_selling_points_data_opt_in_status'
 
@@ -187,6 +194,7 @@ class AdsUserSettings(
         'ads_cs_dynamic_se_opt_out_timestamp': 'list<map<string, int>>',
         'ads_cs_sitelinks_opt_in_status': 'string',
         'ads_cs_sitelinks_opt_out_timestamp': 'list<map<string, int>>',
+        'ads_cs_ugc_opt_out_timestamp': 'list<map<string, int>>',
         'ads_destination_optimization_opt_out_timestamp': 'list<map<string, int>>',
         'ads_tool_visits': 'list<Object>',
         'aplusc_ai_agent_opt_in_status': 'string',
@@ -237,9 +245,11 @@ class AdsUserSettings(
         'image_text_translation_opt_in_status': 'string',
         'is_ads_ai_consented': 'bool',
         'is_cbo_default_on': 'bool',
+        'is_negative_keywords_dismissed': 'bool',
         'is_se_removal_guidance_dismissed': 'bool',
         'last_used_post_format': 'string',
         'last_visited_time': 'datetime',
+        'maiba_r23_e2e_odax_default_mode': 'string',
         'metadata_brand_kit_last_opt_out_timestamp': 'int',
         'metadata_brand_kit_opt_in_status': 'string',
         'multi_media_opt_out_status': 'string',
@@ -263,6 +273,9 @@ class AdsUserSettings(
         'sa_off_conv_loc_seen': 'string',
         'saoff_published_l2_conv_loc_seen': 'string',
         'saon_migr_l1_seen_status': 'string',
+        'se_optout_survey_impr': 'int',
+        'se_optout_survey_last_impr_ts': 'datetime',
+        'se_optout_survey_resp_ts': 'datetime',
         'selected_ad_account': 'AdAccount',
         'selected_comparison_timerange': 'Object',
         'selected_metric_cic': 'string',
@@ -295,6 +308,7 @@ class AdsUserSettings(
         'video_to_image_opt_in_status': 'string',
         'voiceover_trans_opt_in_status': 'string',
         'website_media_opt_in_status': 'string',
+        'website_media_opt_out_ts': 'datetime',
         'website_reviews_data_opt_in_status': 'string',
         'website_selling_points_data_opt_in_status': 'string',
     }

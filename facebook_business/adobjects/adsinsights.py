@@ -44,6 +44,7 @@ class AdsInsights(
         advanced_reach_28d_lookback = 'advanced_reach_28d_lookback'
         advanced_reach_7d_lookback = 'advanced_reach_7d_lookback'
         age_targeting = 'age_targeting'
+        aggregated_play_time_per_reach = 'aggregated_play_time_per_reach'
         anchor_event_attribution_setting = 'anchor_event_attribution_setting'
         anchor_events_performance_indicator = 'anchor_events_performance_indicator'
         attribution_setting = 'attribution_setting'
@@ -70,6 +71,12 @@ class AdsInsights(
         configurable_audience_overlap_with_conv_exposure_cost = 'configurable_audience_overlap_with_conv_exposure_cost'
         configurable_audience_overlap_with_conv_exposure_impressions = 'configurable_audience_overlap_with_conv_exposure_impressions'
         configurable_audience_overlap_with_conv_exposure_reach = 'configurable_audience_overlap_with_conv_exposure_reach'
+        configurable_creative_format_performance_adset_count = 'configurable_creative_format_performance_adset_count'
+        configurable_creative_format_performance_clicks = 'configurable_creative_format_performance_clicks'
+        configurable_creative_format_performance_conversions = 'configurable_creative_format_performance_conversions'
+        configurable_creative_format_performance_converters = 'configurable_creative_format_performance_converters'
+        configurable_creative_format_performance_impressions = 'configurable_creative_format_performance_impressions'
+        configurable_creative_format_performance_spend = 'configurable_creative_format_performance_spend'
         configurable_placement_ptc_conversions = 'configurable_placement_ptc_conversions'
         configurable_placement_ptc_converters = 'configurable_placement_ptc_converters'
         configurable_placement_ptc_reach = 'configurable_placement_ptc_reach'
@@ -115,6 +122,7 @@ class AdsInsights(
         cost_per_inline_link_click = 'cost_per_inline_link_click'
         cost_per_inline_post_engagement = 'cost_per_inline_post_engagement'
         cost_per_message_delivered = 'cost_per_message_delivered'
+        cost_per_mmp_credited_install = 'cost_per_mmp_credited_install'
         cost_per_objective_result = 'cost_per_objective_result'
         cost_per_one_thousand_ad_impression = 'cost_per_one_thousand_ad_impression'
         cost_per_outbound_click = 'cost_per_outbound_click'
@@ -187,6 +195,7 @@ class AdsInsights(
         marketing_messages_spend_currency = 'marketing_messages_spend_currency'
         messages_delivered = 'messages_delivered'
         messages_delivered_ctr = 'messages_delivered_ctr'
+        mmp_credited_install = 'mmp_credited_install'
         mobile_app_purchase_roas = 'mobile_app_purchase_roas'
         msa_seller_budget = 'msa_seller_budget'
         multi_event_conversion_attribution_setting = 'multi_event_conversion_attribution_setting'
@@ -326,6 +335,7 @@ class AdsInsights(
         country = 'country'
         creative_automation_asset_id = 'creative_automation_asset_id'
         creative_fingerprint_details = 'creative_fingerprint_details'
+        creative_format_classification = 'creative_format_classification'
         creative_media_type_breakdown = 'creative_media_type_breakdown'
         creative_relaxation_asset_type = 'creative_relaxation_asset_type'
         crm_advertiser_l12_territory_ids = 'crm_advertiser_l12_territory_ids'
@@ -362,6 +372,7 @@ class AdsInsights(
         media_creator = 'media_creator'
         media_destination_url = 'media_destination_url'
         media_format = 'media_format'
+        media_id = 'media_id'
         media_origin_url = 'media_origin_url'
         media_text_content = 'media_text_content'
         media_type = 'media_type'
@@ -389,6 +400,7 @@ class AdsInsights(
         rta_ugc_topic = 'rta_ugc_topic'
         rule_set_id = 'rule_set_id'
         rule_set_name = 'rule_set_name'
+        signal_source = 'signal_source'
         signal_source_bucket = 'signal_source_bucket'
         skan_campaign_id = 'skan_campaign_id'
         skan_conversion_id = 'skan_conversion_id'
@@ -475,6 +487,7 @@ class AdsInsights(
         'advanced_reach_28d_lookback': 'string',
         'advanced_reach_7d_lookback': 'string',
         'age_targeting': 'string',
+        'aggregated_play_time_per_reach': 'list<AdsActionStats>',
         'anchor_event_attribution_setting': 'string',
         'anchor_events_performance_indicator': 'string',
         'attribution_setting': 'string',
@@ -501,6 +514,12 @@ class AdsInsights(
         'configurable_audience_overlap_with_conv_exposure_cost': 'string',
         'configurable_audience_overlap_with_conv_exposure_impressions': 'string',
         'configurable_audience_overlap_with_conv_exposure_reach': 'string',
+        'configurable_creative_format_performance_adset_count': 'string',
+        'configurable_creative_format_performance_clicks': 'string',
+        'configurable_creative_format_performance_conversions': 'string',
+        'configurable_creative_format_performance_converters': 'string',
+        'configurable_creative_format_performance_impressions': 'string',
+        'configurable_creative_format_performance_spend': 'string',
         'configurable_placement_ptc_conversions': 'string',
         'configurable_placement_ptc_converters': 'string',
         'configurable_placement_ptc_reach': 'string',
@@ -546,6 +565,7 @@ class AdsInsights(
         'cost_per_inline_link_click': 'string',
         'cost_per_inline_post_engagement': 'string',
         'cost_per_message_delivered': 'string',
+        'cost_per_mmp_credited_install': 'list<AdsActionStats>',
         'cost_per_objective_result': 'list<Object>',
         'cost_per_one_thousand_ad_impression': 'list<AdsActionStats>',
         'cost_per_outbound_click': 'list<AdsActionStats>',
@@ -618,6 +638,7 @@ class AdsInsights(
         'marketing_messages_spend_currency': 'string',
         'messages_delivered': 'string',
         'messages_delivered_ctr': 'string',
+        'mmp_credited_install': 'list<AdsActionStats>',
         'mobile_app_purchase_roas': 'list<AdsActionStats>',
         'msa_seller_budget': 'int',
         'multi_event_conversion_attribution_setting': 'string',

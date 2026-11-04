@@ -141,6 +141,8 @@ class IGUserForIGOnlyAPI(
             'folder': 'string',
             'platform': 'platform_enum',
             'tags': 'list<string>',
+            'updated_after_ms': 'unsigned int',
+            'updated_before_ms': 'unsigned int',
             'user_id': 'string',
         }
         enums = {

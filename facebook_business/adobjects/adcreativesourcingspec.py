@@ -41,6 +41,7 @@ class AdCreativeSourcingSpec(
         site_links_data_consented = 'site_links_data_consented'
         site_links_spec = 'site_links_spec'
         source_url = 'source_url'
+        ugc_spec = 'ugc_spec'
         website_media_spec = 'website_media_spec'
         website_summary_spec = 'website_summary_spec'
 
@@ -62,6 +63,7 @@ class AdCreativeSourcingSpec(
         'site_links_data_consented': 'Object',
         'site_links_spec': 'list<AdCreativeSiteLinksSpec>',
         'source_url': 'string',
+        'ugc_spec': 'Object',
         'website_media_spec': 'Object',
         'website_summary_spec': 'Object',
     }

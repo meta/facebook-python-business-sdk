@@ -14,24 +14,22 @@ github and we'll fix in our codegen framework. We'll not be able to accept
 pull request for this class.
 """
 
-class AdsInsightsCampaignGet(
+class AdgroupMRLSettings(
     AbstractObject,
 ):
 
     def __init__(self, api=None):
-        super(AdsInsightsCampaignGet, self).__init__()
-        self._isAdsInsightsCampaignGet = True
+        super(AdgroupMRLSettings, self).__init__()
+        self._isAdgroupMRLSettings = True
         self._api = api
 
     class Field(AbstractObject.Field):
-        data = 'data'
-        paging = 'paging'
-        summary = 'summary'
+        mrl_config_id = 'mrl_config_id'
+        mrl_is_enabled = 'mrl_is_enabled'
 
     _field_types = {
-        'data': 'list<object>',
-        'paging': 'object',
-        'summary': 'object',
+        'mrl_config_id': 'string',
+        'mrl_is_enabled': 'bool',
     }
     @classmethod
     def _get_field_enum_info(cls):

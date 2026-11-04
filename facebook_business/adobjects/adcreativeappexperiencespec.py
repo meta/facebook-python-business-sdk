@@ -24,12 +24,16 @@ class AdCreativeAppExperienceSpec(
         self._api = api
 
     class Field(AbstractObject.Field):
+        ad_extensions = 'ad_extensions'
+        collection = 'collection'
         details_to_ad_layout = 'details_to_ad_layout'
         reveal_details = 'reveal_details'
         show_spotlights = 'show_spotlights'
         website_summary = 'website_summary'
 
     _field_types = {
+        'ad_extensions': 'Object',
+        'collection': 'Object',
         'details_to_ad_layout': 'Object',
         'reveal_details': 'Object',
         'show_spotlights': 'Object',

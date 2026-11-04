@@ -18,13 +18,13 @@ github and we'll fix in our codegen framework. We'll not be able to accept
 pull request for this class.
 """
 
-class IGUserExportForCAM(
+class UserExportForCAM(
     AbstractCrudObject,
 ):
 
     def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isIGUserExportForCAM = True
-        super(IGUserExportForCAM, self).__init__(fbid, parent_id, api)
+        self._isUserExportForCAM = True
+        super(UserExportForCAM, self).__init__(fbid, parent_id, api)
 
     class Field(AbstractObject.Field):
         age_bucket = 'age_bucket'
@@ -33,6 +33,7 @@ class IGUserExportForCAM(
         category = 'category'
         country = 'country'
         email = 'email'
+        facebook_messaging_id = 'facebook_messaging_id'
         gender = 'gender'
         has_brand_partnership_experience = 'has_brand_partnership_experience'
         id = 'id'
@@ -309,6 +310,32 @@ class IGUserExportForCAM(
         female = 'female'
         male = 'male'
         unknown = 'unknown'
+
+    class CreatorLanguage:
+        ar = 'ar'
+        value_as = 'as'
+        bn = 'bn'
+        de = 'de'
+        en = 'en'
+        es = 'es'
+        fr = 'fr'
+        gu = 'gu'
+        hi = 'hi'
+        id = 'id'
+        ja = 'ja'
+        kn = 'kn'
+        ko = 'ko'
+        ml = 'ml'
+        mr = 'mr'
+        nl = 'nl'
+        or = 'or'
+        pa = 'pa'
+        pt = 'pt'
+        ta = 'ta'
+        te = 'te'
+        tr = 'tr'
+        ur = 'ur'
+        zh = 'zh'
 
     class MajorAudienceCountries:
         ac = 'AC'
@@ -774,6 +801,7 @@ class IGUserExportForCAM(
         'category': 'string',
         'country': 'string',
         'email': 'string',
+        'facebook_messaging_id': 'string',
         'gender': 'string',
         'has_brand_partnership_experience': 'bool',
         'id': 'string',
@@ -794,12 +822,13 @@ class IGUserExportForCAM(
     @classmethod
     def _get_field_enum_info(cls):
         field_enum_info = {}
-        field_enum_info['CreatorCountries'] = IGUserExportForCAM.CreatorCountries.__dict__.values()
-        field_enum_info['CreatorGender'] = IGUserExportForCAM.CreatorGender.__dict__.values()
-        field_enum_info['MajorAudienceCountries'] = IGUserExportForCAM.MajorAudienceCountries.__dict__.values()
-        field_enum_info['MajorAudienceGender'] = IGUserExportForCAM.MajorAudienceGender.__dict__.values()
-        field_enum_info['Platform'] = IGUserExportForCAM.Platform.__dict__.values()
-        field_enum_info['RecommendationType'] = IGUserExportForCAM.RecommendationType.__dict__.values()
+        field_enum_info['CreatorCountries'] = UserExportForCAM.CreatorCountries.__dict__.values()
+        field_enum_info['CreatorGender'] = UserExportForCAM.CreatorGender.__dict__.values()
+        field_enum_info['CreatorLanguage'] = UserExportForCAM.CreatorLanguage.__dict__.values()
+        field_enum_info['MajorAudienceCountries'] = UserExportForCAM.MajorAudienceCountries.__dict__.values()
+        field_enum_info['MajorAudienceGender'] = UserExportForCAM.MajorAudienceGender.__dict__.values()
+        field_enum_info['Platform'] = UserExportForCAM.Platform.__dict__.values()
+        field_enum_info['RecommendationType'] = UserExportForCAM.RecommendationType.__dict__.values()
         return field_enum_info
 
 

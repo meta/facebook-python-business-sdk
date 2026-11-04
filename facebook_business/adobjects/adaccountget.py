@@ -267,6 +267,7 @@ class AdAccountGet(
         segment = 'segment'
         send_bill_to_address = 'send_bill_to_address'
         send_bill_to_addresses = 'send_bill_to_addresses'
+        show_checkout_experience = 'show_checkout_experience'
         show_improved_boleto = 'show_improved_boleto'
         show_sac_campaign_group_input = 'show_sac_campaign_group_input'
         site_links_live_crawl = 'site_links_live_crawl'
@@ -818,7 +819,7 @@ class AdAccountGet(
         'is_youth_ads_pao_basic_advertiser': 'bool',
         'is_youth_ads_pao_basic_advertiser_announcement_eligible': 'bool',
         'last_spend_time': 'int',
-        'last_used_time': 'int',
+        'last_used_time': 'mixed',
         'liable_address': 'object',
         'liable_addresses': 'object',
         'liable_to_org': 'object',
@@ -869,6 +870,7 @@ class AdAccountGet(
         'segment': 'Segment',
         'send_bill_to_address': 'object',
         'send_bill_to_addresses': 'object',
+        'show_checkout_experience': 'bool',
         'show_improved_boleto': 'bool',
         'show_sac_campaign_group_input': 'bool',
         'site_links_live_crawl': 'list<object>',

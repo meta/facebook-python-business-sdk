@@ -28,6 +28,7 @@ class AdCreativeMediaSourcingSpec(
         descriptions = 'descriptions'
         destinations = 'destinations'
         images = 'images'
+        playables = 'playables'
         posts = 'posts'
         push_metadata_ids = 'push_metadata_ids'
         related_media = 'related_media'
@@ -39,6 +40,7 @@ class AdCreativeMediaSourcingSpec(
         'descriptions': 'list<Object>',
         'destinations': 'list<Object>',
         'images': 'list<Object>',
+        'playables': 'list<Object>',
         'posts': 'list<Object>',
         'push_metadata_ids': 'list<string>',
         'related_media': 'Object',

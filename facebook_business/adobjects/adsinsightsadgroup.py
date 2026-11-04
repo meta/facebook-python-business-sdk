@@ -29,67 +29,67 @@ class AdsInsightsAdgroup(
     class Field(AbstractObject.Field):
         id = 'id'
 
-    def genget(self, fields=None, params=None, is_async=False, batch=None, success=None, failure=None, pending=False):
+    def genpost(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
         from facebook_business.utils import api_utils
         if batch is None and (success is not None or failure is not None):
           api_utils.warning('`success` and `failure` callback only work for batch call.')
-        from facebook_business.adobjects.adsinsightsadgroupget import AdsInsightsAdgroupGet
-        if is_async:
-          return self.get_insights_async(fields, params, batch, success, failure, pending)
+        from facebook_business.adobjects.adsinsightsadgrouppost import AdsInsightsAdgroupPost
         param_types = {
             'action_attribution_windows': 'string',
             'action_breakdowns': 'string',
             'action_report_time': 'string',
-            'after': 'string',
             'am_call_tags': 'string',
-            'before': 'string',
             'breakdowns': 'string',
             'comparison_fields': 'string',
             'comparison_time_ranges': 'string',
             'date_preset': 'string',
-            'debug_enable_trace': 'bool',
             'default_attribution_windows': 'string',
-            'default_summary': 'bool',
-            'e2e_scenario_run_id': 'string',
+            'default_summary': 'string',
+            'enable_trace': 'string',
             'export_columns': 'string',
             'export_format': 'string',
             'export_name': 'string',
             'fields': 'string',
             'filtering': 'string',
             'flog': 'string',
-            'graph_cache': 'bool',
-            'include_zeros': 'bool',
+            'graph_cache': 'string',
+            'include_zeros': 'string',
             'level': 'string',
-            'limit': 'int',
+            'limit': 'string',
             'meta_breakdowns': 'string',
-            'product_id_limit': 'int',
+            'product_id_limit': 'string',
             'round_up_level': 'string',
             'run_id': 'string',
             'saber_setsuna_perf_request_id': 'string',
+            'scenario_run_id': 'string',
             'sort': 'string',
             'summary': 'string',
             'summary_action_breakdowns': 'string',
             'time_increment': 'string',
             'time_range': 'string',
             'time_ranges': 'string',
-            'use_account_attribution_setting': 'bool',
-            'use_unified_attribution_setting': 'bool',
+            'use_account_attribution_setting': 'string',
+            'use_unified_attribution_setting': 'string',
         }
         enums = {
         }
+
+        if fields is not None:
+            params['fields'] = params.get('fields') if params.get('fields') is not None else list()
+            params['fields'].extend(field for field in fields if field not in params['fields'])
+
         request = FacebookRequest(
             node_id=self['id'],
-            method='GET',
+            method='POST',
             endpoint='/insights',
             api=self._api,
             param_checker=TypeChecker(param_types, enums),
-            target_class=AdsInsightsAdgroupGet,
+            target_class=AdsInsightsAdgroupPost,
             api_type='EDGE',
-            response_parser=ObjectParser(target_class=AdsInsightsAdgroupGet, api=self._api),
+            response_parser=ObjectParser(target_class=AdsInsightsAdgroupPost, api=self._api),
             include_summary=False,
         )
         request.add_params(params)
-        request.add_fields(fields)
 
         if batch is not None:
             request.add_to_batch(batch, success=success, failure=failure)

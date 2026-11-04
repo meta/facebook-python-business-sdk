@@ -48,11 +48,9 @@ class BusinessAssetGroup(
     class PageTasks:
         advertise = 'ADVERTISE'
         analyze = 'ANALYZE'
-        cashier_role = 'CASHIER_ROLE'
         create_content = 'CREATE_CONTENT'
         global_structure_management = 'GLOBAL_STRUCTURE_MANAGEMENT'
         manage = 'MANAGE'
-        manage_jobs = 'MANAGE_JOBS'
         manage_leads = 'MANAGE_LEADS'
         messaging = 'MESSAGING'
         moderate = 'MODERATE'

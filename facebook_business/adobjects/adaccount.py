@@ -1116,6 +1116,7 @@ class AdAccount(
             'evaluation_spec': 'Object',
             'execution_spec': 'Object',
             'name': 'string',
+            'recommended_rule_key': 'string',
             'schedule_spec': 'Object',
             'status': 'status_enum',
             'ui_creation_source': 'ui_creation_source_enum',
@@ -1426,7 +1427,6 @@ class AdAccount(
             'bid_constraints': 'map<string, Object>',
             'bid_strategy': 'bid_strategy_enum',
             'billing_event': 'billing_event_enum',
-            'brand_safety_config': 'map',
             'budget_schedule_specs': 'list<Object>',
             'budget_source': 'budget_source_enum',
             'budget_split_set_id': 'string',
@@ -1642,6 +1642,8 @@ class AdAccount(
                 '22',
                 '24',
                 '25',
+                '26',
+                '27',
             ],
             'status_enum': [
                 'ACTIVE',
@@ -2703,6 +2705,7 @@ class AdAccount(
             'is_direct_send_campaign': 'bool',
             'is_message_campaign': 'bool',
             'is_meta_moment_maker_enabled': 'bool',
+            'is_pca_unified': 'bool',
             'is_reels_trending_ads_enabled': 'bool',
             'is_skadnetwork_attribution': 'bool',
             'iterative_split_test_configs': 'list<Object>',
@@ -3323,6 +3326,7 @@ class AdAccount(
             'action_breakdowns': 'list<action_breakdowns_enum>',
             'action_report_time': 'action_report_time_enum',
             'breakdowns': 'list<breakdowns_enum>',
+            'cpas_only': 'string',
             'date_preset': 'date_preset_enum',
             'default_summary': 'bool',
             'export_columns': 'list<string>',
@@ -3386,6 +3390,7 @@ class AdAccount(
             'action_breakdowns': 'list<action_breakdowns_enum>',
             'action_report_time': 'action_report_time_enum',
             'breakdowns': 'list<breakdowns_enum>',
+            'cpas_only': 'string',
             'date_preset': 'date_preset_enum',
             'default_summary': 'bool',
             'export_columns': 'list<string>',
@@ -4673,11 +4678,13 @@ class AdAccount(
         param_types = {
             'entry_point': 'entry_point_enum',
             'name': 'string',
+            'origin': 'origin_enum',
             'product_type': 'product_type_enum',
             'rules': 'list<map>',
         }
         enums = {
             'entry_point_enum': AdsValueAdjustmentRuleCollection.EntryPoint.__dict__.values(),
+            'origin_enum': AdsValueAdjustmentRuleCollection.Origin.__dict__.values(),
             'product_type_enum': AdsValueAdjustmentRuleCollection.ProductType.__dict__.values(),
         }
         request = FacebookRequest(
