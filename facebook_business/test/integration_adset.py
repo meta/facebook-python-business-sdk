@@ -33,6 +33,7 @@ from facebook_business.exceptions import FacebookRequestError
 from facebook_business.api import FacebookAdsApi, FacebookRequest, FacebookResponse
 from facebook_business.adobjects.adaccount import AdAccount
 from facebook_business.adobjects.adset import AdSet
+from facebook_business.adobjects.abstractcrudobject import AbstractCrudObject
 from facebook_business.adobjects.adbidadjustments import AdBidAdjustments
 from .integration_utils import *
 from .integration_constant import *
@@ -55,14 +56,12 @@ class AdSetTestCase(IntegrationTestCase):
                 '"' + str(FieldName.BUDGET_REMAINING) + '": "' + str(TestValue.BUDGET_REMAINING) + '",'
                 '"' + str(FieldName.CAMPAIGN_ID) + '":"' + str(TestValue.CAMPAIGN_ID) + '",'
                 '"' + str(FieldName.CONFIGURED_STATUS) + '": "' + str(TestValue.CONFIGURED_STATUS) + '",'
-                '"' + str(FieldName.DATE_FORMAT) + '":"' + str(TestValue.DATE_FORMAT) + '",'
                 '"' + str(FieldName.DAILY_MIN_SPEND_TARGET) + '": "' + str(TestValue.DAILY_MIN_SPEND_TARGET) + '",'
                 '"' + str(FieldName.EFFECTIVE_STATUS) + '":"' + str(TestValue.EFFECTIVE_STATUS) + '",'
                 '"' + str(FieldName.ISSUES_INFO) + '": ' + str(TestValue.ISSUES_INFO) + ','
                 '"' + str(FieldName.OPTIMIZATION_GOAL) + '":"' + str(TestValue.OPTIMIZATION_GOAL) + '",'
                 '"' + str(FieldName.PACING_TYPE) + '":"' + str(TestValue.PACING_TYPE) + '",'
-                '"' + str(FieldName.REVIEW_FEEDBACK) + '":"' + str(TestValue.REVIEW_FEEDBACK) + '",'
-                '"' + str(FieldName.TUNE_FOR_CATEGORY) + '":"' + str(TestValue.TUNE_FOR_CATEGORY) + '"'
+                '"' + str(FieldName.REVIEW_FEEDBACK) + '":"' + str(TestValue.REVIEW_FEEDBACK) + '"'
                 '}'
             )
 
@@ -80,14 +79,12 @@ class AdSetTestCase(IntegrationTestCase):
                 FieldName.BUDGET_REMAINING,
                 FieldName.CAMPAIGN_ID,
                 FieldName.CONFIGURED_STATUS,
-                FieldName.DATE_FORMAT,
                 FieldName.DAILY_MIN_SPEND_TARGET,
                 FieldName.EFFECTIVE_STATUS,
                 FieldName.ISSUES_INFO,
                 FieldName.OPTIMIZATION_GOAL,
                 FieldName.PACING_TYPE,
                 FieldName.REVIEW_FEEDBACK,
-                FieldName.TUNE_FOR_CATEGORY,
             ]
             params = {}
             print(params.__class__.__name__)
@@ -109,14 +106,12 @@ class AdSetTestCase(IntegrationTestCase):
             self.assertEqual(ad_set[FieldName.BUDGET_REMAINING], TestValue.BUDGET_REMAINING)
             self.assertEqual(ad_set[FieldName.CAMPAIGN_ID], TestValue.CAMPAIGN_ID)
             self.assertEqual(ad_set[FieldName.CONFIGURED_STATUS], TestValue.CONFIGURED_STATUS)
-            self.assertEqual(ad_set[FieldName.DATE_FORMAT], TestValue.DATE_FORMAT)
             self.assertEqual(ad_set[FieldName.DAILY_MIN_SPEND_TARGET], TestValue.DAILY_MIN_SPEND_TARGET)
             self.assertEqual(ad_set[FieldName.EFFECTIVE_STATUS], TestValue.EFFECTIVE_STATUS)
             self.assertEqual(ad_set[FieldName.ISSUES_INFO], [json.loads(TestValue.ISSUES_INFO)])
             self.assertEqual(ad_set[FieldName.OPTIMIZATION_GOAL], TestValue.OPTIMIZATION_GOAL)
             self.assertEqual(ad_set[FieldName.PACING_TYPE], [TestValue.PACING_TYPE])
             self.assertEqual(ad_set[FieldName.REVIEW_FEEDBACK], TestValue.REVIEW_FEEDBACK)
-            self.assertEqual(ad_set[FieldName.TUNE_FOR_CATEGORY], TestValue.TUNE_FOR_CATEGORY)
 
 
     def test_get_ad_set_with_wrong_fields(self):
@@ -174,7 +169,7 @@ class AdSetTestCase(IntegrationTestCase):
                 params,
             )
             self.assertEqual(len(warning), 0)
-            self.assertTrue(isinstance(ad_set, AdSet))
+            self.assertTrue(isinstance(ad_set, AbstractCrudObject))
             self.assertEqual(ad_set[FieldName.ID], TestValue.ADSET_ID)
 
 
