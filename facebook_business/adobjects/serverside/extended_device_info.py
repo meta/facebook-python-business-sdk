@@ -18,6 +18,10 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
+import pprint
+import six
+
+
 class ExtendedDeviceInfo(object):
 
     EXT_INFO_VERSION        = 0
@@ -313,7 +317,7 @@ class ExtendedDeviceInfo(object):
 
     def __eq__(self, other):
         """Returns true if both objects are equal"""
-        if not isinstance(other, Event):
+        if not isinstance(other, ExtendedDeviceInfo):
             return False
 
         return self.__dict__ == other.__dict__
