@@ -218,6 +218,7 @@ class Post(
             'direct_share_status': 'unsigned int',
             'explicitly_added_mentionee_ids': 'list<unsigned int>',
             'feed_story_visibility': 'feed_story_visibility_enum',
+            'is_ai_generated': 'bool',
             'is_explicit_location': 'bool',
             'is_hidden': 'bool',
             'is_pinned': 'bool',

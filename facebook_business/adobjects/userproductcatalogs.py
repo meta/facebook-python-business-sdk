@@ -18,66 +18,47 @@ github and we'll fix in our codegen framework. We'll not be able to accept
 pull request for this class.
 """
 
-class WorkSkill(
+class UserProductCatalogs(
     AbstractCrudObject,
 ):
 
     def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isWorkSkill = True
-        super(WorkSkill, self).__init__(fbid, parent_id, api)
+        self._isUserProductCatalogs = True
+        super(UserProductCatalogs, self).__init__(fbid, parent_id, api)
 
     class Field(AbstractObject.Field):
         id = 'id'
-        name = 'name'
 
-    def api_get(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
+    def genget(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
         from facebook_business.utils import api_utils
         if batch is None and (success is not None or failure is not None):
           api_utils.warning('`success` and `failure` callback only work for batch call.')
+        from facebook_business.adobjects.userproductcatalogsget import UserProductCatalogsGet
         param_types = {
+            'after': 'string',
+            'before': 'string',
+            'business_catalogs_with_role_filter': 'string',
+            'date_format': 'string',
+            'exclude_user_owned_catalog_segments_filter': 'string',
+            'fields': 'string',
+            'limit': 'int',
+            'name_filter': 'string',
+            'owner_types': 'string',
+            'parent_catalogs_only': 'string',
+            'sort': 'string',
+            'summary': 'string',
         }
         enums = {
         }
         request = FacebookRequest(
             node_id=self['id'],
             method='GET',
-            endpoint='/',
+            endpoint='/product_catalogs',
             api=self._api,
             param_checker=TypeChecker(param_types, enums),
-            target_class=WorkSkill,
-            api_type='NODE',
-            response_parser=ObjectParser(reuse_object=self),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch, success=success, failure=failure)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
-    def get_users(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
-        from facebook_business.utils import api_utils
-        if batch is None and (success is not None or failure is not None):
-          api_utils.warning('`success` and `failure` callback only work for batch call.')
-        from facebook_business.adobjects.user import User
-        param_types = {
-        }
-        enums = {
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='GET',
-            endpoint='/users',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=User,
+            target_class=UserProductCatalogsGet,
             api_type='EDGE',
-            response_parser=ObjectParser(target_class=User, api=self._api),
+            response_parser=ObjectParser(target_class=UserProductCatalogsGet, api=self._api),
         )
         request.add_params(params)
         request.add_fields(fields)
@@ -93,7 +74,6 @@ class WorkSkill(
 
     _field_types = {
         'id': 'string',
-        'name': 'string',
     }
     @classmethod
     def _get_field_enum_info(cls):

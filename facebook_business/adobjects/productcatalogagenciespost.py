@@ -14,22 +14,22 @@ github and we'll fix in our codegen framework. We'll not be able to accept
 pull request for this class.
 """
 
-class WhatsAppPaymentCapabilities(
+class ProductCatalogAgenciesPost(
     AbstractObject,
 ):
 
     def __init__(self, api=None):
-        super(WhatsAppPaymentCapabilities, self).__init__()
-        self._isWhatsAppPaymentCapabilities = True
+        super(ProductCatalogAgenciesPost, self).__init__()
+        self._isProductCatalogAgenciesPost = True
         self._api = api
 
     class Field(AbstractObject.Field):
-        is_enabled = 'is_enabled'
-        payment_capability_details = 'payment_capability_details'
+        __firstoneof = '__firstOneOf'
+        __secondoneof = '__secondOneOf'
 
     _field_types = {
-        'is_enabled': 'bool',
-        'payment_capability_details': 'list<Object>',
+        '__firstOneOf': 'object',
+        '__secondOneOf': 'object',
     }
     @classmethod
     def _get_field_enum_info(cls):

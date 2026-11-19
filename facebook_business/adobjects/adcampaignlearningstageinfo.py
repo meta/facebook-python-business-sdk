@@ -25,7 +25,6 @@ class AdCampaignLearningStageInfo(
 
     class Field(AbstractObject.Field):
         attribution_windows = 'attribution_windows'
-        cas_segment = 'cas_segment'
         conversions = 'conversions'
         current_budget_prediction = 'current_budget_prediction'
         dynamic_lp_conversions_threshold = 'dynamic_lp_conversions_threshold'
@@ -39,7 +38,6 @@ class AdCampaignLearningStageInfo(
 
     _field_types = {
         'attribution_windows': 'list<string>',
-        'cas_segment': 'string',
         'conversions': 'unsigned int',
         'current_budget_prediction': 'Object',
         'dynamic_lp_conversions_threshold': 'unsigned int',

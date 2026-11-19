@@ -66,6 +66,8 @@ class ProductSetProductsGet(
         empty_brand = 'EMPTY_BRAND'
         empty_condition = 'EMPTY_CONDITION'
         empty_description = 'EMPTY_DESCRIPTION'
+        empty_gpc_and_fpc = 'EMPTY_GPC_AND_FPC'
+        empty_gtin_and_mpn = 'EMPTY_GTIN_AND_MPN'
         empty_image_url = 'EMPTY_IMAGE_URL'
         empty_price = 'EMPTY_PRICE'
         empty_product_url = 'EMPTY_PRODUCT_URL'

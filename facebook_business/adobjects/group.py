@@ -88,37 +88,6 @@ class Group(
         work_team = 'WORK_TEAM'
         work_teamwork = 'WORK_TEAMWORK'
 
-    class GroupType:
-        casual = 'CASUAL'
-        coworkers = 'COWORKERS'
-        custom = 'CUSTOM'
-        for_sale = 'FOR_SALE'
-        for_work = 'FOR_WORK'
-        game = 'GAME'
-        health_support = 'HEALTH_SUPPORT'
-        jobs = 'JOBS'
-        learning = 'LEARNING'
-        none = 'NONE'
-        parenting = 'PARENTING'
-        streamer = 'STREAMER'
-        work_agent_to_agent = 'WORK_AGENT_TO_AGENT'
-        work_announcement = 'WORK_ANNOUNCEMENT'
-        work_demo_group = 'WORK_DEMO_GROUP'
-        work_discussion = 'WORK_DISCUSSION'
-        work_ephemeral = 'WORK_EPHEMERAL'
-        work_feedback = 'WORK_FEEDBACK'
-        work_for_sale = 'WORK_FOR_SALE'
-        work_garden = 'WORK_GARDEN'
-        work_integrity = 'WORK_INTEGRITY'
-        work_learning = 'WORK_LEARNING'
-        work_mentorship = 'WORK_MENTORSHIP'
-        work_multi_company = 'WORK_MULTI_COMPANY'
-        work_recruiting = 'WORK_RECRUITING'
-        work_social = 'WORK_SOCIAL'
-        work_stages = 'WORK_STAGES'
-        work_team = 'WORK_TEAM'
-        work_teamwork = 'WORK_TEAMWORK'
-
     def api_get(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
         from facebook_business.utils import api_utils
         if batch is None and (success is not None or failure is not None):
@@ -581,50 +550,6 @@ class Group(
         request = FacebookRequest(
             node_id=self['id'],
             method='GET',
-            endpoint='/groups',
-            api=self._api,
-            param_checker=TypeChecker(param_types, enums),
-            target_class=Group,
-            api_type='EDGE',
-            response_parser=ObjectParser(target_class=Group, api=self._api),
-        )
-        request.add_params(params)
-        request.add_fields(fields)
-
-        if batch is not None:
-            request.add_to_batch(batch, success=success, failure=failure)
-            return request
-        elif pending:
-            return request
-        else:
-            self.assure_call()
-            return request.execute()
-
-    def create_group(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
-        from facebook_business.utils import api_utils
-        if batch is None and (success is not None or failure is not None):
-          api_utils.warning('`success` and `failure` callback only work for batch call.')
-        param_types = {
-            'admin': 'int',
-            'description': 'string',
-            'group_icon_id': 'string',
-            'group_type': 'group_type_enum',
-            'join_setting': 'join_setting_enum',
-            'name': 'string',
-            'parent_id': 'string',
-            'post_permissions': 'post_permissions_enum',
-            'post_requires_admin_approval': 'bool',
-            'privacy': 'string',
-            'ref': 'string',
-        }
-        enums = {
-            'group_type_enum': Group.GroupType.__dict__.values(),
-            'join_setting_enum': Group.JoinSetting.__dict__.values(),
-            'post_permissions_enum': Group.PostPermissions.__dict__.values(),
-        }
-        request = FacebookRequest(
-            node_id=self['id'],
-            method='POST',
             endpoint='/groups',
             api=self._api,
             param_checker=TypeChecker(param_types, enums),
@@ -1124,7 +1049,6 @@ class Group(
         field_enum_info['JoinSetting'] = Group.JoinSetting.__dict__.values()
         field_enum_info['PostPermissions'] = Group.PostPermissions.__dict__.values()
         field_enum_info['Purpose'] = Group.Purpose.__dict__.values()
-        field_enum_info['GroupType'] = Group.GroupType.__dict__.values()
         return field_enum_info
 
 

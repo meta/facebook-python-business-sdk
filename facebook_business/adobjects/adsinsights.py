@@ -81,7 +81,6 @@ class AdsInsights(
         configurable_placement_ptc_converters = 'configurable_placement_ptc_converters'
         configurable_placement_ptc_reach = 'configurable_placement_ptc_reach'
         configurable_reachbyfrequency_action = 'configurable_reachbyfrequency_action'
-        configurable_reachbyfrequency_converters_count = 'configurable_reachbyfrequency_converters_count'
         configurable_reachbyfrequency_impressions_cost = 'configurable_reachbyfrequency_impressions_cost'
         configurable_reachbyfrequency_impressions_count = 'configurable_reachbyfrequency_impressions_count'
         configurable_reachbyfrequency_reach = 'configurable_reachbyfrequency_reach'
@@ -394,6 +393,8 @@ class AdsInsights(
         product_group_content_id_breakdown = 'product_group_content_id_breakdown'
         product_id = 'product_id'
         publisher_platform = 'publisher_platform'
+        purchased_brand = 'purchased_brand'
+        purchased_category = 'purchased_category'
         redownload = 'redownload'
         reels_trending_topic = 'reels_trending_topic'
         region = 'region'
@@ -524,7 +525,6 @@ class AdsInsights(
         'configurable_placement_ptc_converters': 'string',
         'configurable_placement_ptc_reach': 'string',
         'configurable_reachbyfrequency_action': 'list<AdsActionStats>',
-        'configurable_reachbyfrequency_converters_count': 'string',
         'configurable_reachbyfrequency_impressions_cost': 'string',
         'configurable_reachbyfrequency_impressions_count': 'string',
         'configurable_reachbyfrequency_reach': 'string',

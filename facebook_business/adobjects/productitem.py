@@ -124,9 +124,6 @@ class ProductItem(
         visibility = 'visibility'
         wa_compliance_category = 'wa_compliance_category'
         allow_upsert = 'allow_upsert'
-        fbe_external_business_id = 'fbe_external_business_id'
-        requests = 'requests'
-        version = 'version'
         android_app_name = 'android_app_name'
         android_class = 'android_class'
         android_package = 'android_package'
@@ -470,6 +467,8 @@ class ProductItem(
         empty_brand = 'EMPTY_BRAND'
         empty_condition = 'EMPTY_CONDITION'
         empty_description = 'EMPTY_DESCRIPTION'
+        empty_gpc_and_fpc = 'EMPTY_GPC_AND_FPC'
+        empty_gtin_and_mpn = 'EMPTY_GTIN_AND_MPN'
         empty_image_url = 'EMPTY_IMAGE_URL'
         empty_price = 'EMPTY_PRICE'
         empty_product_url = 'EMPTY_PRODUCT_URL'
@@ -1309,9 +1308,6 @@ class ProductItem(
         'visibility': 'Visibility',
         'wa_compliance_category': 'string',
         'allow_upsert': 'bool',
-        'fbe_external_business_id': 'string',
-        'requests': 'list<map>',
-        'version': 'unsigned int',
         'android_app_name': 'string',
         'android_class': 'string',
         'android_package': 'string',

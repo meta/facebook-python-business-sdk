@@ -370,7 +370,6 @@ class AdVideo(
         instream_video_desktop = 'INSTREAM_VIDEO_DESKTOP'
         instream_video_image = 'INSTREAM_VIDEO_IMAGE'
         instream_video_mobile = 'INSTREAM_VIDEO_MOBILE'
-        messenger_mobile_inbox_media = 'MESSENGER_MOBILE_INBOX_MEDIA'
         messenger_mobile_story_media = 'MESSENGER_MOBILE_STORY_MEDIA'
         mobile_feed_standard = 'MOBILE_FEED_STANDARD'
         mobile_fullwidth = 'MOBILE_FULLWIDTH'

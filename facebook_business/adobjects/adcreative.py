@@ -97,6 +97,7 @@ class AdCreative(
         regional_regulation_disclaimer_spec = 'regional_regulation_disclaimer_spec'
         source_facebook_post_id = 'source_facebook_post_id'
         source_instagram_media_id = 'source_instagram_media_id'
+        source_threads_media_id = 'source_threads_media_id'
         status = 'status'
         template_url = 'template_url'
         template_url_spec = 'template_url_spec'
@@ -564,6 +565,7 @@ class AdCreative(
         'regional_regulation_disclaimer_spec': 'AdCreativeRegionalRegulationDisclaimer',
         'source_facebook_post_id': 'string',
         'source_instagram_media_id': 'string',
+        'source_threads_media_id': 'string',
         'status': 'Status',
         'template_url': 'string',
         'template_url_spec': 'AdCreativeTemplateURLSpec',

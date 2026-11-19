@@ -14,22 +14,20 @@ github and we'll fix in our codegen framework. We'll not be able to accept
 pull request for this class.
 """
 
-class AdsPixelDeliveryRecommendations(
+class ShareOfVoiceGet(
     AbstractObject,
 ):
 
     def __init__(self, api=None):
-        super(AdsPixelDeliveryRecommendations, self).__init__()
-        self._isAdsPixelDeliveryRecommendations = True
+        super(ShareOfVoiceGet, self).__init__()
+        self._isShareOfVoiceGet = True
         self._api = api
 
     class Field(AbstractObject.Field):
-        custom_event_type = 'custom_event_type'
-        optimization_goal = 'optimization_goal'
+        data = 'data'
 
     _field_types = {
-        'custom_event_type': 'string',
-        'optimization_goal': 'string',
+        'data': 'object',
     }
     @classmethod
     def _get_field_enum_info(cls):

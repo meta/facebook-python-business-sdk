@@ -69,7 +69,9 @@ class InsightsResult(
         total_comments = 'total_comments'
         total_interactions = 'total_interactions'
         total_likes = 'total_likes'
+        total_viewers = 'total_viewers'
         total_views = 'total_views'
+        viewers = 'viewers'
         views = 'views'
 
     class Period:

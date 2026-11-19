@@ -30,6 +30,7 @@ class AdCreativeGet(
         account_id = 'account_id'
         actor_id = 'actor_id'
         actor_type = 'actor_type'
+        ad_disclaimer_spec = 'ad_disclaimer_spec'
         adlabels = 'adlabels'
         applink_treatment = 'applink_treatment'
         asset_feed_spec = 'asset_feed_spec'
@@ -68,6 +69,7 @@ class AdCreativeGet(
         interactive_components_spec = 'interactive_components_spec'
         link_og_id = 'link_og_id'
         link_url = 'link_url'
+        marketing_message_structured_spec = 'marketing_message_structured_spec'
         media_sourcing_spec = 'media_sourcing_spec'
         media_type = 'media_type'
         name = 'name'
@@ -86,10 +88,12 @@ class AdCreativeGet(
         playable_asset_id = 'playable_asset_id'
         portrait_customizations = 'portrait_customizations'
         product_set_id = 'product_set_id'
+        product_suggestion_settings = 'product_suggestion_settings'
         recommender_settings = 'recommender_settings'
         regional_regulation_disclaimer_spec = 'regional_regulation_disclaimer_spec'
         source_facebook_post_id = 'source_facebook_post_id'
         source_instagram_media_id = 'source_instagram_media_id'
+        source_threads_media_id = 'source_threads_media_id'
         status = 'status'
         template_url = 'template_url'
         template_url_spec = 'template_url_spec'
@@ -103,6 +107,7 @@ class AdCreativeGet(
         use_page_actor_override = 'use_page_actor_override'
         video_id = 'video_id'
         visual_hash = 'visual_hash'
+        wamo_whatsapp_identity_spec = 'wamo_whatsapp_identity_spec'
 
     class ActorType:
         page = 'PAGE'
@@ -340,6 +345,7 @@ class AdCreativeGet(
         'account_id': 'string',
         'actor_id': 'int',
         'actor_type': 'ActorType',
+        'ad_disclaimer_spec': 'object',
         'adlabels': 'list<object>',
         'applink_treatment': 'ApplinkTreatment',
         'asset_feed_spec': 'object',
@@ -378,6 +384,7 @@ class AdCreativeGet(
         'interactive_components_spec': 'object',
         'link_og_id': 'int',
         'link_url': 'string',
+        'marketing_message_structured_spec': 'object',
         'media_sourcing_spec': 'object',
         'media_type': 'MediaType',
         'name': 'string',
@@ -396,10 +403,12 @@ class AdCreativeGet(
         'playable_asset_id': 'int',
         'portrait_customizations': 'object',
         'product_set_id': 'int',
+        'product_suggestion_settings': 'object',
         'recommender_settings': 'object',
         'regional_regulation_disclaimer_spec': 'object',
         'source_facebook_post_id': 'int',
         'source_instagram_media_id': 'int',
+        'source_threads_media_id': 'int',
         'status': 'string',
         'template_url': 'string',
         'template_url_spec': 'object',
@@ -413,6 +422,7 @@ class AdCreativeGet(
         'use_page_actor_override': 'bool',
         'video_id': 'int',
         'visual_hash': 'int',
+        'wamo_whatsapp_identity_spec': 'object',
     }
     @classmethod
     def _get_field_enum_info(cls):

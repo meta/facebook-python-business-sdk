@@ -14,22 +14,22 @@ github and we'll fix in our codegen framework. We'll not be able to accept
 pull request for this class.
 """
 
-class ProductCatalogPost(
+class PageProductCatalogsGet(
     AbstractObject,
 ):
 
     def __init__(self, api=None):
-        super(ProductCatalogPost, self).__init__()
-        self._isProductCatalogPost = True
+        super(PageProductCatalogsGet, self).__init__()
+        self._isPageProductCatalogsGet = True
         self._api = api
 
     class Field(AbstractObject.Field):
-        __firstoneof = '__firstOneOf'
-        __secondoneof = '__secondOneOf'
+        data = 'data'
+        paging = 'paging'
 
     _field_types = {
-        '__firstOneOf': 'object',
-        '__secondOneOf': 'object',
+        'data': 'list<object>',
+        'paging': 'object',
     }
     @classmethod
     def _get_field_enum_info(cls):

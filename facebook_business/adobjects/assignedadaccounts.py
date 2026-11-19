@@ -18,36 +18,41 @@ github and we'll fix in our codegen framework. We'll not be able to accept
 pull request for this class.
 """
 
-class ExternalMerchantSettings(
+class AssignedAdAccounts(
     AbstractCrudObject,
 ):
 
     def __init__(self, fbid=None, parent_id=None, api=None):
-        self._isExternalMerchantSettings = True
-        super(ExternalMerchantSettings, self).__init__(fbid, parent_id, api)
+        self._isAssignedAdAccounts = True
+        super(AssignedAdAccounts, self).__init__(fbid, parent_id, api)
 
     class Field(AbstractObject.Field):
-        connect_woo = 'connect_woo'
-        external_platform = 'external_platform'
         id = 'id'
 
-    def api_get(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
+    def genget(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
         from facebook_business.utils import api_utils
         if batch is None and (success is not None or failure is not None):
           api_utils.warning('`success` and `failure` callback only work for batch call.')
+        from facebook_business.adobjects.assignedadaccountsget import AssignedAdAccountsGet
         param_types = {
+            'after': 'string',
+            'before': 'string',
+            'fields': 'string',
+            'filtering': 'string',
+            'limit': 'int',
+            'summary': 'string',
         }
         enums = {
         }
         request = FacebookRequest(
             node_id=self['id'],
             method='GET',
-            endpoint='/',
+            endpoint='/assigned_ad_accounts',
             api=self._api,
             param_checker=TypeChecker(param_types, enums),
-            target_class=ExternalMerchantSettings,
-            api_type='NODE',
-            response_parser=ObjectParser(reuse_object=self),
+            target_class=AssignedAdAccountsGet,
+            api_type='EDGE',
+            response_parser=ObjectParser(target_class=AssignedAdAccountsGet, api=self._api),
         )
         request.add_params(params)
         request.add_fields(fields)
@@ -62,8 +67,6 @@ class ExternalMerchantSettings(
             return request.execute()
 
     _field_types = {
-        'connect_woo': 'string',
-        'external_platform': 'string',
         'id': 'string',
     }
     @classmethod

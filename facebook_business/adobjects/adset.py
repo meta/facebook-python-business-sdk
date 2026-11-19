@@ -87,7 +87,6 @@ class AdSet(
         live_video_ad_campaign_config = 'live_video_ad_campaign_config'
         low_creative_reach = 'low_creative_reach'
         max_budget_spend_percentage = 'max_budget_spend_percentage'
-        meta_moment_maker_spec = 'meta_moment_maker_spec'
         min_budget_spend_percentage = 'min_budget_spend_percentage'
         multi_event_conversion_attribution_window_seconds = 'multi_event_conversion_attribution_window_seconds'
         multi_optimization_goal_weight = 'multi_optimization_goal_weight'
@@ -462,7 +461,6 @@ class AdSet(
             'lifetime_spend_cap': 'unsigned int',
             'live_video_ad_campaign_config': 'Object',
             'max_budget_spend_percentage': 'unsigned int',
-            'meta_moment_maker_spec': 'map',
             'min_budget_spend_percentage': 'unsigned int',
             'multi_event_conversion_attribution_window_seconds': 'unsigned int',
             'multi_optimization_goal_weight': 'multi_optimization_goal_weight_enum',
@@ -1235,7 +1233,6 @@ class AdSet(
         'live_video_ad_campaign_config': 'LiveVideoAdCampaignConfig',
         'low_creative_reach': 'list<string>',
         'max_budget_spend_percentage': 'string',
-        'meta_moment_maker_spec': 'MetaMomentMakerConfig',
         'min_budget_spend_percentage': 'string',
         'multi_event_conversion_attribution_window_seconds': 'int',
         'multi_optimization_goal_weight': 'string',

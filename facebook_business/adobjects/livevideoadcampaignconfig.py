@@ -27,7 +27,9 @@ class LiveVideoAdCampaignConfig(
         super(LiveVideoAdCampaignConfig, self).__init__(fbid, parent_id, api)
 
     class Field(AbstractObject.Field):
+        declared_live_seconds = 'declared_live_seconds'
         id = 'id'
+        live_cadence = 'live_cadence'
         live_video_ad_type = 'live_video_ad_type'
 
     def api_get(self, fields=None, params=None, batch=None, success=None, failure=None, pending=False):
@@ -61,7 +63,9 @@ class LiveVideoAdCampaignConfig(
             return request.execute()
 
     _field_types = {
+        'declared_live_seconds': 'unsigned int',
         'id': 'string',
+        'live_cadence': 'string',
         'live_video_ad_type': 'string',
     }
     @classmethod

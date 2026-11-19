@@ -29,8 +29,10 @@ class AdgroupGet(
     class Field(AbstractObject.Field):
         account_id = 'account_id'
         ad_active_time = 'ad_active_time'
+        ad_review_feedback = 'ad_review_feedback'
         ad_schedule_end_time = 'ad_schedule_end_time'
         ad_schedule_start_time = 'ad_schedule_start_time'
+        ad_studies = 'ad_studies'
         adcreatives = 'adcreatives'
         adlabels = 'adlabels'
         adrules_governed = 'adrules_governed'
@@ -46,6 +48,7 @@ class AdgroupGet(
         configured_status = 'configured_status'
         conversion_domain = 'conversion_domain'
         conversion_specs = 'conversion_specs'
+        copies = 'copies'
         created_time = 'created_time'
         creative = 'creative'
         creative_asset_groups_spec = 'creative_asset_groups_spec'
@@ -61,15 +64,41 @@ class AdgroupGet(
         display_sequence = 'display_sequence'
         effective_status = 'effective_status'
         engagement_audience = 'engagement_audience'
+        failed_delivery_checks = 'failed_delivery_checks'
         frequency = 'frequency'
         id = 'id'
         impressions = 'impressions'
+        insights = 'insights'
         is_autobid = 'is_autobid'
+        issues_info = 'issues_info'
         last_updated_by_app_id = 'last_updated_by_app_id'
+        leadgens = 'leadgens'
+        leads = 'leads'
         meta_reward_adgroup_status = 'meta_reward_adgroup_status'
+        metadata = 'metadata'
+        mrl_settings = 'mrl_settings'
+        name = 'name'
+        objective_for_cost = 'objective_for_cost'
+        objective_for_results = 'objective_for_results'
+        preview_link = 'preview_link'
+        preview_shareable_link = 'preview_shareable_link'
+        previews = 'previews'
+        priority = 'priority'
+        recommendations = 'recommendations'
+        related_media_user_opted_out = 'related_media_user_opted_out'
+        related_page_post_id = 'related_page_post_id'
+        result = 'result'
+        result_rate = 'result_rate'
+        source_ad = 'source_ad'
+        source_ad_id = 'source_ad_id'
+        source_app_id = 'source_app_id'
         special_ad_categories = 'special_ad_categories'
         spent = 'spent'
         status = 'status'
+        targeting = 'targeting'
+        targetingsentencelines = 'targetingsentencelines'
+        tracking_and_conversion_with_defaults = 'tracking_and_conversion_with_defaults'
+        tracking_specs = 'tracking_specs'
         updated_time = 'updated_time'
         view_tags = 'view_tags'
         yesterday_spent = 'yesterday_spent'
@@ -138,8 +167,10 @@ class AdgroupGet(
     _field_types = {
         'account_id': 'string',
         'ad_active_time': 'string',
+        'ad_review_feedback': 'object',
         'ad_schedule_end_time': 'mixed',
         'ad_schedule_start_time': 'mixed',
+        'ad_studies': 'object',
         'adcreatives': 'object',
         'adlabels': 'list<object>',
         'adrules_governed': 'object',
@@ -155,6 +186,7 @@ class AdgroupGet(
         'configured_status': 'string',
         'conversion_domain': 'string',
         'conversion_specs': 'list<object>',
+        'copies': 'object',
         'created_time': 'mixed',
         'creative': 'object',
         'creative_asset_groups_spec': 'object',
@@ -170,15 +202,41 @@ class AdgroupGet(
         'display_sequence': 'int',
         'effective_status': 'string',
         'engagement_audience': 'bool',
+        'failed_delivery_checks': 'list<object>',
         'frequency': 'float',
         'id': 'int',
         'impressions': 'int',
+        'insights': 'object',
         'is_autobid': 'bool',
+        'issues_info': 'list<object>',
         'last_updated_by_app_id': 'string',
+        'leadgens': 'string',
+        'leads': 'object',
         'meta_reward_adgroup_status': 'string',
+        'metadata': 'object',
+        'mrl_settings': 'object',
+        'name': 'string',
+        'objective_for_cost': 'string',
+        'objective_for_results': 'string',
+        'preview_link': 'string',
+        'preview_shareable_link': 'string',
+        'previews': 'object',
+        'priority': 'int',
+        'recommendations': 'list<object>',
+        'related_media_user_opted_out': 'bool',
+        'related_page_post_id': 'string',
+        'result': 'string',
+        'result_rate': 'string',
+        'source_ad': 'object',
+        'source_ad_id': 'string',
+        'source_app_id': 'string',
         'special_ad_categories': 'list<string>',
         'spent': 'string',
         'status': 'string',
+        'targeting': 'object',
+        'targetingsentencelines': 'object',
+        'tracking_and_conversion_with_defaults': 'object',
+        'tracking_specs': 'list<object>',
         'updated_time': 'mixed',
         'view_tags': 'list<string>',
         'yesterday_spent': 'string',

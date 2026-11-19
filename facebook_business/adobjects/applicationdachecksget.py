@@ -107,6 +107,7 @@ class ApplicationDAChecksGet(
         agentic_checkout_pre_click = 'AGENTIC_CHECKOUT_PRE_CLICK'
         amazon_buy_with_prime = 'AMAZON_BUY_WITH_PRIME'
         augmented_reality = 'AUGMENTED_REALITY'
+        catalog_recommendations_alpha = 'CATALOG_RECOMMENDATIONS_ALPHA'
         checkout = 'CHECKOUT'
         integrated_checkout_lowes = 'INTEGRATED_CHECKOUT_LOWES'
         integrated_checkout_meli = 'INTEGRATED_CHECKOUT_MELI'

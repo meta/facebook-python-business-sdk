@@ -44,6 +44,7 @@ class LeadgenForm(
         organic_leads_count = 'organic_leads_count'
         page = 'page'
         page_id = 'page_id'
+        phone_otp_verification_type = 'phone_otp_verification_type'
         privacy_policy_url = 'privacy_policy_url'
         question_page_custom_headline = 'question_page_custom_headline'
         questions = 'questions'
@@ -90,6 +91,11 @@ class LeadgenForm(
         zh_cn = 'ZH_CN'
         zh_hk = 'ZH_HK'
         zh_tw = 'ZH_TW'
+
+    class PhoneOtpVerificationType:
+        not_enabled = 'NOT_ENABLED'
+        otp_optional = 'OTP_OPTIONAL'
+        otp_required = 'OTP_REQUIRED'
 
     # @deprecated get_endpoint function is deprecated
     @classmethod
@@ -271,6 +277,7 @@ class LeadgenForm(
         'organic_leads_count': 'unsigned int',
         'page': 'Page',
         'page_id': 'string',
+        'phone_otp_verification_type': 'string',
         'privacy_policy_url': 'string',
         'question_page_custom_headline': 'string',
         'questions': 'list<LeadGenQuestion>',
@@ -283,6 +290,7 @@ class LeadgenForm(
         field_enum_info = {}
         field_enum_info['Status'] = LeadgenForm.Status.__dict__.values()
         field_enum_info['Locale'] = LeadgenForm.Locale.__dict__.values()
+        field_enum_info['PhoneOtpVerificationType'] = LeadgenForm.PhoneOtpVerificationType.__dict__.values()
         return field_enum_info
 
 
