@@ -18,10 +18,20 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
+      id: setup_python
       uses: actions/setup-python@v4
+      continue-on-error: true
       with:
         python-version: ${{ matrix.python-version }}
     - name: Test with tox
+      if: steps.setup_python.outcome == 'success'
       run: |
         pip install tox
         tox -e ${{ matrix.tox-env }}
+    # Fall back to portable Python builds if setup-python cannot install the requested version.
+    - name: Set up uv
+      if: steps.setup_python.outcome == 'failure'
+      uses: astral-sh/setup-uv@v6
+    - name: Test with tox (uv fallback)
+      if: steps.setup_python.outcome == 'failure'
+      run: uv run --managed-python --no-project --python '${{ matrix.python-version }}' --with tox tox -e '${{ matrix.tox-env }}'
